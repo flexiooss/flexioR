@@ -10,4 +10,5 @@ Description: Interacts with Flexio's API
 Depends: httr, jsonlite
 BugReports: https://github.com/flexiooss/flexioR/issues
 License: Apache 2.0
+GitHub: https://github.com/flexiooss/flexioR
 RoxygenNote: 6.0.1
