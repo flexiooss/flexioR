@@ -2,6 +2,7 @@ library(httr)
 library(jsonlite)
 
 #' Prints Hello World
+#' @export
 helloworld <- function() {print(c("Hello","World"))}
 
 flexioPaginationLength <- 100
@@ -9,6 +10,7 @@ flexioPaginationLength <- 100
 
 #' Gets a ressource from Flexio
 #' @param flexioURL URL of Flexio's API
+#' @export
 getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=NULL, fields=c() ,verbose=FALSE) {
   requestURL <- paste(flexioURL,'/',account,'/',ressourceName, sep = "", collapse = NULL)
   rangeFrom <- 0
