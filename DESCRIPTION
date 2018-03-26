@@ -6,5 +6,6 @@ Date: 2018-03-23
 Author: Flexio
 Maintainer: Thibaud Jeannin <stagiaire@flexio.fr>
 Description: Interacts with Flexio's API
+Depends: httr, jsonlite
 License: Apache 2.0
 RoxygenNote: 6.0.1
