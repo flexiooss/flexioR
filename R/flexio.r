@@ -1,6 +1,3 @@
-library(httr)
-library(jsonlite)
-
 #' Prints Hello World
 #' @export
 helloworld <- function() {print(c("Hello","World"))}
