@@ -11,9 +11,11 @@
 ```bash
 devtools::install_github("flexiooss/flexioR", ref="develop")
 ```
+## Ressources
+[Documentation](https://rawgit.com/flexiooss/flexioR/feature/DocumentationWebsite/docs/index.html)
 
 ## Test installation
 ```
 library(flexioR)
 helloworld()
-```
+```l

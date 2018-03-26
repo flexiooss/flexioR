@@ -1,4 +1,4 @@
-all: man site targz
+all: targz
 
 man :
 	R -e 'roxygen2::roxygenise()' --silent
@@ -6,5 +6,5 @@ man :
 site :
 	R -e 'pkgdown::build_site()' --silent
 
-targz :
+targz : man site
 	R CMD build .
