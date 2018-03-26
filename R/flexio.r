@@ -5,6 +5,8 @@ library(jsonlite)
 #' @export
 helloworld <- function() {print(c("Hello","World"))}
 
+#' Max range authorized by Flexio API
+#' @export
 flexioPaginationLength <- 100
 
 
