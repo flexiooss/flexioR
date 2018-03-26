@@ -16,6 +16,6 @@ devtools::install_github("flexiooss/flexioR", ref="develop")
 
 ## Test installation
 ```
-library(flexioR)
+library(flexioR)  
 helloworld()
 ```l
