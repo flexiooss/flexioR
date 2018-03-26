@@ -34,7 +34,7 @@ getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=N
     new_dataset <- data.frame(resp, stringsAsFactors=FALSE)
     dataset <- rbind(dataset, new_dataset)
 
-    rangeFrom <- rangeFrom + len
+    rangeFrom <- rangeFrom + flexioPaginationLength
 
     if(req$status_code == 200){break}
   }
