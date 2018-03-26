@@ -3,7 +3,8 @@ Type: Package
 Title: flexioR (Flexio API)
 Version: 0.0.1
 Date: 2018-03-23
-Author: Flexio
+Authors@R: c(person("Thibaud Jeannin", "Developer", role = c("aut", "cre"), email = "stagiaire@flexio.fr"))
+Author: Thibaud Jeannin
 Maintainer: Thibaud Jeannin <stagiaire@flexio.fr>
 Description: Interacts with Flexio's API
 Depends: httr, jsonlite
