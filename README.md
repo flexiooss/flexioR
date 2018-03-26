@@ -10,10 +10,10 @@
 > If you need stable version, use ``ref="master"`` instead of ``ref="develop"``
 ```bash
 devtools::install_github("flexiooss/flexioR", ref="develop")
-library(flexioR)
 ```
 
 ## Test installation
 ```
+library(flexioR)
 helloworld()
 ```
