@@ -30,6 +30,7 @@ getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=N
 
     if(! req$status_code %in% c(200,206)){quit()}
 
+    resp <- fromJSON(content(req, "text"))
     new_dataset <- data.frame(resp, stringsAsFactors=FALSE)
     dataset <- rbind(dataset, new_dataset)
 
