@@ -2,14 +2,26 @@
 % Please edit documentation in R/flexio.r
 \name{getFlexioRessource}
 \alias{getFlexioRessource}
-\title{Gets a ressource from Flexio}
+\title{Returns a dataset containing ressources from Flexio}
 \usage{
 getFlexioRessource(flexioURL, account, ressourceName, auth, header = NULL,
   fields = c(), verbose = FALSE)
 }
 \arguments{
 \item{flexioURL}{URL of Flexio's API}
+
+\item{account}{flexio account}
+
+\item{ressourceName}{name of the flexio ressource}
+
+\item{auth}{flexio authentification token}
+
+\item{header}{additional header (you don't need to add 'range' and 'Authorization', they have been put automaticaly for you)}
+
+\item{fields}{name of the fields you want to get in your dataset (leave it empty if you want all the fields)}
+
+\item{verbose}{set it to TRUE to print the request details}
 }
 \description{
-Gets a ressource from Flexio
+Returns a dataset containing ressources from Flexio
 }

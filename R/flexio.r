@@ -10,8 +10,14 @@ helloworld <- function() {print(c("Hello","World"))}
 flexioPaginationLength <- 100
 
 
-#' Gets a ressource from Flexio
+#' Returns a dataset containing ressources from Flexio
+#' @param fields name of the fields you want to get in your dataset (leave it empty if you want all the fields)
 #' @param flexioURL URL of Flexio's API
+#' @param account flexio account
+#' @param ressourceName name of the flexio ressource
+#' @param auth flexio authentification token
+#' @param header additional header (you don't need to add 'range' and 'Authorization', they have been put automaticaly for you)
+#' @param verbose set it to TRUE to print the request details
 #' @export
 getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=NULL, fields=c() ,verbose=FALSE) {
   requestURL <- paste(flexioURL,'/',account,'/',ressourceName, sep = "", collapse = NULL)
