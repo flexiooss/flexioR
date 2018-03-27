@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Prints Hello World — helloworld • flexioR</title>
+<title>Deletes a ressource reccord from Flexio — deleteFlexioReccord • flexioR</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Prints Hello World — helloworld" />
+<meta property="og:title" content="Deletes a ressource reccord from Flexio — deleteFlexioReccord" />
 
-<meta property="og:description" content="Prints Hello World" />
+<meta property="og:description" content="Deletes a ressource reccord from Flexio" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -111,22 +111,61 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Prints Hello World</h1>
+    <h1>Deletes a ressource reccord from Flexio</h1>
     
     </div>
 
     
-    <p>Prints Hello World</p>
+    <p>Deletes a ressource reccord from Flexio</p>
     
 
-    <pre class="usage"><span class='fu'>helloworld</span>()</pre>
-        
+    <pre class="usage"><span class='fu'>deleteFlexioReccord</span>(<span class='no'>flexioURL</span>, <span class='no'>account</span>, <span class='no'>ressourceName</span>, <span class='no'>reccordID</span>, <span class='no'>auth</span>,
+  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>flexioURL</th>
+      <td><p>URL of Flexio's API</p></td>
+    </tr>
+    <tr>
+      <th>account</th>
+      <td><p>flexio account</p></td>
+    </tr>
+    <tr>
+      <th>ressourceName</th>
+      <td><p>name of the flexio ressource</p></td>
+    </tr>
+    <tr>
+      <th>reccordID</th>
+      <td><p>: the ID of the reccord you want</p></td>
+    </tr>
+    <tr>
+      <th>auth</th>
+      <td><p>flexio authentification token</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>set it to TRUE to print the request details</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p>Other Flexio Interaction: <code><a href='getFlexioReccord.html'>getFlexioReccord</a></code>,
+  <code><a href='getFlexioRessource.html'>getFlexioRessource</a></code>,
+  <code><a href='postFlexioRessource.html'>postFlexioRessource</a></code></p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>
