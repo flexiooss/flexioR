@@ -122,19 +122,14 @@ getFlexioReccord <- function(flexioURL, account, ressourceName, reccordID, auth,
 #' @family Flexio Interaction
 #' @export
 putFlexioReccord <- function(flexioURL, account, ressourceName, auth, reccordID, data, verbose) {
-
-
   requestURL <- paste(flexioURL,'/',account,'/',ressourceName,'/',reccordID , sep = "", collapse = NULL)
 
   body <- toJSON(data)
-  print(body)
   body <- substring(body,2,nchar(body)-1)
-  print(body)
 
   req <- PUT(requestURL, add_headers(Authorization=auth, 'Content-type'='application/json'), body=body)
   if(! req$status_code %in% c(200)){print(http_status(req)$message); return(FALSE)}
   return(TRUE)
-
 }
 
 patchFlexioReccord <- function() {
