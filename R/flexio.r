@@ -62,11 +62,11 @@ postFlexioRessource <- function(flexioURL, account, ressourceName, auth, data, v
   n <- nrow(data)
   for (entry in 1:n)
   {
-    if(length(dataset) == 1){
-      # body <- paste("'{",'"',colnames(data),'" : "', data[entry,], '"', "'}'")
+    if(length(data) == 1){
       body <- sprintf('{\"%s\" : \"%s\"}', colnames(data),data[entry,])
     }
     else{
+      body <- toJSON(data)
     }
     print(body)
     if(verbose){
@@ -85,7 +85,7 @@ postFlexioRessource <- function(flexioURL, account, ressourceName, auth, data, v
 #' Returns a 1 entry dataset containing ressources reccord from Flexio
 #' @param fields name of the fields you want to get in your dataset (leave it empty if you want all the fields)
 #' @param flexioURL URL of Flexio's API
-#' @param account flexio account
+# ' @param account flexio account
 #' @param ressourceName name of the flexio ressource
 #' @param auth flexio authentification token
 #' @param reccordID : the ID of the reccord you want
@@ -111,9 +111,32 @@ getFlexioReccord <- function(flexioURL, account, ressourceName, reccordID, auth,
 
 }
 
-putFlexioReccord <- function() {
-  #TODO
+#' Updates a ressource reccord from Flexio
+#' @param fields name of the fields you want to get in your dataset (leave it empty if you want all the fields)
+#' @param flexioURL URL of Flexio's API
+#' @param account flexio account
+#' @param ressourceName name of the flexio ressource
+#' @param auth flexio authentification token
+#' @param reccordID : the ID of the reccord you want
+#' @param verbose set it to TRUE to print the request details
+#' @family Flexio Interaction
+#' @export
+putFlexioReccord <- function(flexioURL, account, ressourceName, auth, reccordID, data, verbose) {
+
+
+  requestURL <- paste(flexioURL,'/',account,'/',ressourceName,'/',reccordID , sep = "", collapse = NULL)
+
+  body <- toJSON(data)
+  print(body)
+  body <- substring(body,2,nchar(body)-1)
+  print(body)
+
+  req <- PUT(requestURL, add_headers(Authorization=auth, 'Content-type'='application/json'), body=body)
+  if(! req$status_code %in% c(200)){print(http_status(req)$message); return(FALSE)}
+  return(TRUE)
+
 }
+
 patchFlexioReccord <- function() {
   #TODO
 }
