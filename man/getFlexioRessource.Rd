@@ -26,6 +26,7 @@ getFlexioRessource(flexioURL, account, ressourceName, auth, header = NULL,
 Returns a dataset containing ressources from Flexio
 }
 \seealso{
-Other Flexio Interaction: \code{\link{getFlexioReccord}},
+Other Flexio Interaction: \code{\link{deleteFlexioReccord}},
+  \code{\link{getFlexioReccord}},
   \code{\link{postFlexioRessource}}
 }

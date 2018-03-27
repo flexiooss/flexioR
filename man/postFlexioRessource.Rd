@@ -26,6 +26,7 @@ postFlexioRessource(flexioURL, account, ressourceName, auth, data,
 Sends a ressource to Flexio
 }
 \seealso{
-Other Flexio Interaction: \code{\link{getFlexioReccord}},
+Other Flexio Interaction: \code{\link{deleteFlexioReccord}},
+  \code{\link{getFlexioReccord}},
   \code{\link{getFlexioRessource}}
 }
