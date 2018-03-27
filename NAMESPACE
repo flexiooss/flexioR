@@ -3,3 +3,4 @@
 export(flexioPaginationLength)
 export(getFlexioRessource)
 export(helloworld)
+export(postFlexioRessource)

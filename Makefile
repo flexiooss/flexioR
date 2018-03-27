@@ -8,3 +8,6 @@ site :
 
 targz : man site
 	R CMD build .
+
+clean :
+	rm -rf man/ docs/ flexio_*.tar.gz
