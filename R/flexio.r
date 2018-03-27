@@ -56,7 +56,7 @@ getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=N
 #' @param verbose set it to TRUE to print the request details
 #' @family Flexio Interaction
 #' @export
-postFlexioRessource <- function(flexioURL, account, ressourceName, auth, verbose=FALSE, data) {
+postFlexioRessource <- function(flexioURL, account, ressourceName, auth, data, verbose=FALSE) {
   requestURL <- paste(flexioURL,'/',account,'/',ressourceName, sep = "", collapse = NULL)
 
   n <- nrow(data)
@@ -80,4 +80,33 @@ postFlexioRessource <- function(flexioURL, account, ressourceName, auth, verbose
 
     if(! req$status_code %in% c(201)){print(http_status(req)$message); break}
   }
+}
+
+#' Returns a 1 entry dataset containing ressources from Flexio
+#' @param fields name of the fields you want to get in your dataset (leave it empty if you want all the fields)
+#' @param flexioURL URL of Flexio's API
+#' @param account flexio account
+#' @param ressourceName name of the flexio ressource
+#' @param auth flexio authentification token
+#' @param reccordID : the ID of the reccord you want
+#' @param verbose set it to TRUE to print the request details
+#' @family Flexio Interaction
+#' @export
+getFlexioReccord <- function(flexioURL, account, ressourceName, reccordID, auth, fields=c('5ab9f62f827fa100162cac95'), verbose=FALSE) {
+  requestURL <- paste(flexioURL,'/',account,'/',ressourceName,'/',reccordID , sep = "", collapse = NULL)
+
+  req <- GET(requestURL, add_headers(Authorization=auth))
+  if(! req$status_code %in% c(200)){print(http_status(req)$message); return(NULL)}
+
+  resp <- fromJSON(content(req, "text"))
+
+  resp=resp[-(which(sapply(resp,is.null),arr.ind=TRUE))]
+
+  reccord <- as.data.frame(resp, check.names=FALSE)
+  if (length(fields) != 0){
+    reccord <- subset(reccord, select=fields)
+  }
+
+  return(reccord)
+
 }
