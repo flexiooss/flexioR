@@ -2,14 +2,12 @@
 > R library to manipulate Flexio API
 
 ## Functionalities  
-* Get ressources from Flexio as data frames
-
-
+* Get and delete Flexio ressources reccords from R
 
 ## Installation  
-> If you need stable version, use ``ref="master"`` instead of ``ref="develop"``
+> If you need stable version, use ``ref="develop"`` instead of ``ref="master"``
 ```bash
-devtools::install_github("flexiooss/flexioR", ref="develop")
+devtools::install_github("flexiooss/flexioR", ref="master")
 ```
 ## Ressources  
 > [Documentation](https://rawgit.com/flexiooss/flexioR/master/docs/index.html)
