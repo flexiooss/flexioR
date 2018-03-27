@@ -1,0 +1,17 @@
+Package: flexioR
+Type: Package
+Title: flexioR (Flexio API)
+Version: 0.1.0
+Date: 2018-03-23
+Authors@R: c(person("Thibaud Jeannin", role = c("aut", "cre"), email = "stagiaire@flexio.fr"))
+Author: Thibaud Jeannin
+Maintainer: Thibaud Jeannin <stagiaire@flexio.fr>
+Description: Interacts with Flexio's API
+Depends: httr, jsonlite
+BugReports: https://github.com/flexiooss/flexioR/issues
+License: Apache 2.0
+GitHub: https://github.com/flexiooss/flexioR
+RoxygenNote: 6.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr

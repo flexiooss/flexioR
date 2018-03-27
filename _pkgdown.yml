@@ -1,0 +1,7 @@
+navbar:
+  type: inverse
+  right:
+    - icon: fa-space-shuttle fa-lg
+      href: https://www.flexio.fr/
+    - icon: fa-github fa-lg
+      href: https://github.com/flexiooss/flexioR

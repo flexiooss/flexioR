@@ -1,0 +1,39 @@
+---
+title: "Get started with flexioR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Dependencies Installation
+> httr, jsonlite
+
+* httr
+```R
+install.package("httr")
+```
+* jsonlite
+```R
+install.package("jsonlite")
+```
+
+## flexioR Installation  
+> From GitHub  
+
+* Stable  
+```R
+devtools::install_github("flexiooss/flexioR", ref="master")
+```
+* Unstable  
+```R
+devtools::install_github("flexiooss/flexioR", ref="develop")
+```
+
+## Test installation  
+* Load the library
+```R
+library(flexioR)  
+helloworld()
+```
