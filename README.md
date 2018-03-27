@@ -5,7 +5,7 @@
 * Get and delete Flexio ressources reccords from R
 
 ## Installation  
-> If you need stable version, use ``ref="develop"`` instead of ``ref="master"``
+> If you need unstable developement version, use ``ref="develop"`` instead of ``ref="master"``
 ```bash
 devtools::install_github("flexiooss/flexioR", ref="master")
 ```
