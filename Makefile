@@ -1,9 +1,9 @@
 all: targz
 
-man :
+man : clean
 	R -e 'roxygen2::roxygenise()' --silent
 
-site :
+site : man
 	R -e 'pkgdown::build_site()' --silent
 
 targz : man site

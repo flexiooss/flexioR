@@ -2,10 +2,10 @@
 % Please edit documentation in R/flexio.r
 \name{getFlexioReccord}
 \alias{getFlexioReccord}
-\title{Returns a 1 entry dataset containing ressources from Flexio}
+\title{Returns a 1 entry dataset containing ressources reccord from Flexio}
 \usage{
 getFlexioReccord(flexioURL, account, ressourceName, reccordID, auth,
-  fields = c("5ab9f62f827fa100162cac95"), verbose = FALSE)
+  fields = c(), verbose = FALSE)
 }
 \arguments{
 \item{flexioURL}{URL of Flexio's API}
@@ -23,9 +23,10 @@ getFlexioReccord(flexioURL, account, ressourceName, reccordID, auth,
 \item{verbose}{set it to TRUE to print the request details}
 }
 \description{
-Returns a 1 entry dataset containing ressources from Flexio
+Returns a 1 entry dataset containing ressources reccord from Flexio
 }
 \seealso{
-Other Flexio Interaction: \code{\link{getFlexioRessource}},
+Other Flexio Interaction: \code{\link{deleteFlexioReccord}},
+  \code{\link{getFlexioRessource}},
   \code{\link{postFlexioRessource}}
 }
