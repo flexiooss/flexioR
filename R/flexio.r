@@ -1,4 +1,5 @@
 #' Prints Hello World
+#' @family Random stuff
 #' @export
 helloworld <- function() {print(c("Hello","World"))}
 
@@ -15,6 +16,7 @@ flexioPaginationLength <- 100
 #' @param auth flexio authentification token
 #' @param header additional header (you don't need to add 'range' and 'Authorization', they have been put automaticaly for you)
 #' @param verbose set it to TRUE to print the request details
+#' @family Flexio Interaction
 #' @export
 getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=NULL, fields=c() ,verbose=FALSE) {
   requestURL <- paste(flexioURL,'/',account,'/',ressourceName, sep = "", collapse = NULL)

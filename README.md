@@ -1,19 +1,21 @@
-# flexioR
+# flexioR  
 > R library to manipulate Flexio API
 
-## Functionalities
+## Functionalities  
 * Get ressources from Flexio as data frames
 
 
 
-## Installation
+## Installation  
 > If you need stable version, use ``ref="master"`` instead of ``ref="develop"``
 ```bash
 devtools::install_github("flexiooss/flexioR", ref="develop")
 ```
+## Ressources  
+> [Documentation](https://rawgit.com/flexiooss/flexioR/feature/DocumentationWebsite/docs/index.html)
 
-## Test installation
+## Test installation  
 ```
-library(flexioR)
+library(flexioR)  
 helloworld()
 ```
