@@ -4,8 +4,8 @@
 \alias{postFlexioRessource}
 \title{Sends a ressource to Flexio}
 \usage{
-postFlexioRessource(flexioURL, account, ressourceName, auth, verbose = FALSE,
-  data)
+postFlexioRessource(flexioURL, account, ressourceName, auth, data,
+  verbose = FALSE)
 }
 \arguments{
 \item{flexioURL}{URL of Flexio's API}
@@ -16,9 +16,9 @@ postFlexioRessource(flexioURL, account, ressourceName, auth, verbose = FALSE,
 
 \item{auth}{flexio authentification token}
 
-\item{verbose}{set it to TRUE to print the request details}
-
 \item{data}{the data you want to send to Flexio}
+
+\item{verbose}{set it to TRUE to print the request details}
 
 \item{fields}{name of the fields you want to get in your dataset (leave it empty if you want all the fields)}
 }
@@ -26,5 +26,6 @@ postFlexioRessource(flexioURL, account, ressourceName, auth, verbose = FALSE,
 Sends a ressource to Flexio
 }
 \seealso{
-Other Flexio Interaction: \code{\link{getFlexioRessource}}
+Other Flexio Interaction: \code{\link{getFlexioReccord}},
+  \code{\link{getFlexioRessource}}
 }
