@@ -1,5 +1,7 @@
-flexioPaginationLength <- 100
+# FlexioR
 
+
+flexioPaginationLength <- 100
 
 #' Returns a dataset containing ressources reccords from Flexio
 #' @param flexioURL URL of Flexio's API
