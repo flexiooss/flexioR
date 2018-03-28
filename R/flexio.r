@@ -85,7 +85,7 @@ postFlexioRessource <- function(flexioURL, account, ressourceName, auth, data, v
 #' Returns a 1 entry dataset containing ressources reccord from Flexio
 #' @param fields name of the fields you want to get in your dataset (leave it empty if you want all the fields)
 #' @param flexioURL URL of Flexio's API
-# ' @param account flexio account
+#' @param account flexio account
 #' @param ressourceName name of the flexio ressource
 #' @param auth flexio authentification token
 #' @param reccordID : the ID of the reccord you want
@@ -118,22 +118,60 @@ getFlexioReccord <- function(flexioURL, account, ressourceName, reccordID, auth,
 #' @param ressourceName name of the flexio ressource
 #' @param auth flexio authentification token
 #' @param reccordID : the ID of the reccord you want
+#' @param data : the data you want to use
 #' @param verbose set it to TRUE to print the request details
 #' @family Flexio Interaction
 #' @export
-putFlexioReccord <- function(flexioURL, account, ressourceName, auth, reccordID, data, verbose) {
+putFlexioReccord <- function(flexioURL, account, ressourceName, auth, reccordID, data, verbose=FALSE) {
   requestURL <- paste(flexioURL,'/',account,'/',ressourceName,'/',reccordID , sep = "", collapse = NULL)
 
   body <- toJSON(data)
   body <- substring(body,2,nchar(body)-1)
 
-  req <- PUT(requestURL, add_headers(Authorization=auth, 'Content-type'='application/json'), body=body)
+  if(verbose){
+    req <- PUT(requestURL, add_headers(Authorization=auth, 'Content-type'='application/json'), body=body, verbose())
+  }
+  else
+  {
+    req <- PUT(requestURL, add_headers(Authorization=auth, 'Content-type'='application/json'), body=body)
+  }
   if(! req$status_code %in% c(200)){print(http_status(req)$message); return(FALSE)}
   return(TRUE)
 }
 
-patchFlexioReccord <- function() {
-  #TODO
+#' @param verbose set it to TRUE to print the request details
+
+#' Updates a ressource reccord from Flexio
+#' @param fields name of the fields you want to get in your dataset (leave it empty if you want all the fields)
+#' @param flexioURL URL of Flexio's API
+#' @param account flexio account
+#' @param ressourceName name of the flexio ressource
+#' @param auth flexio authentification token
+#' @param reccordID : the ID of the reccord you want
+#' @param data : the data you want to use
+#' @param fields : the fields you want to update
+#' @family Flexio Interaction
+#' @export
+patchFlexioReccord <- function(flexioURL, account, ressourceName, auth, reccordID, data, fields=c(), verbose=FALSE) {
+  requestURL <- paste(flexioURL,'/',account,'/',ressourceName,'/',reccordID , sep = "", collapse = NULL)
+
+  if(length(fields) > 0){
+    # data <- subset(data, select = fields) FIXME Ne fonctionne pas quand il manque un champs
+  }
+
+  body <- toJSON(data)
+  body <- substring(body,2,nchar(body)-1)
+
+  print(body)
+
+  if(verbose){
+    req <- PATCH(requestURL, add_headers(Authorization=auth, 'Content-type'='application/json'), body=body, verbose())
+  }
+  else{
+    req <- PATCH(requestURL, add_headers(Authorization=auth, 'Content-type'='application/json'), body=body)
+  }
+  if(! req$status_code %in% c(200)){print(http_status(req)$message); return(FALSE)}
+  return(TRUE)
 }
 
 
