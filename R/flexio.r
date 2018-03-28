@@ -1,9 +1,9 @@
-#' Max pagination range authorized by Flexio API
-#' @export
+# FlexioR
+
+
 flexioPaginationLength <- 100
 
-
-#' Returns a dataset containing ressources from Flexio
+#' Returns a dataset containing ressources reccords from Flexio
 #' @param flexioURL URL of Flexio's API
 #' @param account flexio account
 #' @param ressourceName name of the flexio ressource
@@ -80,7 +80,7 @@ postFlexioRessource <- function(flexioURL, account, ressourceName, auth, data, v
   return(TRUE)
 }
 
-#' Returns a 1 entry dataset containing ressources reccord from Flexio
+#' Returns a 1 entry dataset containing a single ressource reccord from Flexio
 #' @param flexioURL URL of Flexio's API
 #' @param account flexio account
 #' @param ressourceName name of the flexio ressource
@@ -113,7 +113,7 @@ getFlexioReccord <- function(flexioURL, account, ressourceName, auth, reccordID,
   return(reccord)
 }
 
-#' Updates a ressource reccord from Flexio
+#' Updates a ressource reccord from Flexio (all the fields)
 #' @param flexioURL URL of Flexio's API
 #' @param account flexio account
 #' @param ressourceName name of the flexio ressource
@@ -140,9 +140,8 @@ putFlexioReccord <- function(flexioURL, account, ressourceName, auth, reccordID,
   return(TRUE)
 }
 
-#' @param verbose set it to TRUE to print the request details
 
-#' Updates a ressource reccord from Flexio
+#' Updates a ressource reccord from Flexio (only the given fields)
 #' @param flexioURL URL of Flexio's API
 #' @param account flexio account
 #' @param ressourceName name of the flexio ressource
@@ -150,6 +149,7 @@ putFlexioReccord <- function(flexioURL, account, ressourceName, auth, reccordID,
 #' @param reccordID : the ID of the reccord you want
 #' @param data : the data you want to use
 #' @param fields : the fields you want to update (leave it empty to update all the fields)
+#' @param verbose set it to TRUE to print the request details
 #' @family Flexio Interaction
 #' @export
 patchFlexioReccord <- function(flexioURL, account, ressourceName, auth, reccordID, data, fields=c(), verbose=FALSE) {

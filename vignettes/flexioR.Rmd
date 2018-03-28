@@ -8,7 +8,12 @@ vignette: >
 ---
 
 ## Dependencies Installation
-> httr, jsonlite
+> devtools, httr, jsonlite
+
+* devtools
+```R
+install.package("devtools")
+```
 
 * httr
 ```R
@@ -34,6 +39,6 @@ devtools::install_github("flexiooss/flexioR", ref="develop")
 ## Test installation  
 * Load the library
 ```R
-library(flexioR)  
-helloworld()
+library(flexioR)
 ```
+>

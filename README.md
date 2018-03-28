@@ -11,9 +11,3 @@ devtools::install_github("flexiooss/flexioR", ref="master")
 ```
 ## Ressources  
 > [Documentation](https://rawgit.com/flexiooss/flexioR/master/docs/index.html)
-
-## Test installation  
-```
-library(flexioR)  
-helloworld()
-```

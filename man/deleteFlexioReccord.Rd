@@ -26,5 +26,7 @@ Deletes a ressource reccord from Flexio
 \seealso{
 Other Flexio Interaction: \code{\link{getFlexioReccord}},
   \code{\link{getFlexioRessource}},
-  \code{\link{postFlexioRessource}}
+  \code{\link{patchFlexioReccord}},
+  \code{\link{postFlexioRessource}},
+  \code{\link{putFlexioReccord}}
 }
