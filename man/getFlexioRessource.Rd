@@ -28,6 +28,8 @@ Returns a dataset containing ressources reccords from Flexio
 \seealso{
 Other Flexio Interaction: \code{\link{deleteFlexioReccord}},
   \code{\link{getFlexioReccord}},
+  \code{\link{getFlexioRessourceFieldsTypes}},
+  \code{\link{getFlexioRessourceSchema}},
   \code{\link{patchFlexioReccord}},
   \code{\link{postFlexioRessource}},
   \code{\link{putFlexioReccord}}

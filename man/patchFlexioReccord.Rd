@@ -30,6 +30,8 @@ Updates a ressource reccord from Flexio (only the given fields)
 \seealso{
 Other Flexio Interaction: \code{\link{deleteFlexioReccord}},
   \code{\link{getFlexioReccord}},
+  \code{\link{getFlexioRessourceFieldsTypes}},
+  \code{\link{getFlexioRessourceSchema}},
   \code{\link{getFlexioRessource}},
   \code{\link{postFlexioRessource}},
   \code{\link{putFlexioReccord}}

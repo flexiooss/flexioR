@@ -27,6 +27,8 @@ Returns a 1 entry dataset containing a single ressource reccord from Flexio
 }
 \seealso{
 Other Flexio Interaction: \code{\link{deleteFlexioReccord}},
+  \code{\link{getFlexioRessourceFieldsTypes}},
+  \code{\link{getFlexioRessourceSchema}},
   \code{\link{getFlexioRessource}},
   \code{\link{patchFlexioReccord}},
   \code{\link{postFlexioRessource}},

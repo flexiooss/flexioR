@@ -32,19 +32,86 @@ getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=N
     if(! req$status_code %in% c(200,206)){print(http_status(req)$message); return(NULL)}
 
     resp <- fromJSON(content(req, "text"))
-    new_dataset <- data.frame(resp, stringsAsFactors=FALSE)
+    new_dataset <- data.frame(resp, stringsAsFactors=FALSE, check.names=FALSE)
     dataset <- rbind(dataset, new_dataset)
-
 
     rangeFrom <- rangeFrom + flexioPaginationLength
     if(req$status_code == 200){break}
   }
 
+  # Delete all the columns which are not fields of the ressource
+  schema <- getFlexioRessourceFieldsTypes(
+    flexioURL=flexioURL,
+    account=account,
+    ressourceName=ressourceName,
+    auth=auth
+  )
+
+  # Convert each column to its right type
+  for(name in names(dataset)){
+    if(! is.null(schema[[name]]))
+    {
+      switch(schema[[name]],
+        DATETIME= {dataset <- castDATETIMEToTime(dataset, name)},
+        TIME=     {dataset <- castTIMEToTime(dataset, name)},
+        DATE=     {dataset <- castDATEToTime(dataset, name)}
+      )
+    }
+  }
+
+  dataset<- subset(dataset, select=names(schema))
+
   if (length(fields) != 0){
     dataset <- subset(dataset, select=fields)
   }
-
   return(dataset)
+}
+
+
+#' Returns the raw schema of a flexio ressource
+#' @param flexioURL URL of Flexio's API
+#' @param account flexio account
+#' @param ressourceName name of the flexio ressource
+#' @param auth flexio authentification token
+#' @param verbose set it to TRUE to print the request details
+#' @family Flexio Interaction
+#' @export
+getFlexioRessourceSchema <- function(flexioURL, account, ressourceName, auth, verbose=FALSE) {
+  requestURL <- paste(flexioURL,'/',account,'/',ressourceName,'/schema', sep = "", collapse = NULL)
+  if(verbose)
+  {
+    req <- GET(requestURL, add_headers(Authorization=auth), verbose())
+  }
+  else{
+    req <- GET(requestURL, add_headers(Authorization=auth))
+  }
+  if(! req$status_code %in% c(200)){print(http_status(req)$message); return(NULL)}
+
+  return(content(req))
+}
+
+#' Returns a list containing the Flexio ressource fields names and their types
+#' @param flexioURL URL of Flexio's API
+#' @param account flexio account
+#' @param ressourceName name of the flexio ressource
+#' @param auth flexio authentification token
+#' @family Flexio Interaction
+#' @export
+getFlexioRessourceFieldsTypes <- function(flexioURL, account, ressourceName, auth) {
+  schema <- getFlexioRessourceSchema(
+    flexioURL=flexioURL,
+    account=account,
+    ressourceName=ressourceName,
+    auth=auth,
+    verbose=FALSE
+  )
+
+  types <- list()
+
+  for (field in schema$properties) {
+    types[field$name] <- field$'data-type'
+  }
+  return(types)
 }
 
 #' Sends a ressource to Flexio. Adds each entry of the given dataset to the Flexio ressource
@@ -156,7 +223,7 @@ patchFlexioReccord <- function(flexioURL, account, ressourceName, auth, reccordI
   requestURL <- paste(flexioURL,'/',account,'/',ressourceName,'/',reccordID , sep = "", collapse = NULL)
 
   if(length(fields) > 0){
-    # data <- subset(data, select = fields) FIXME PATCH doesn't work with missing fields
+    data <- subset(data, select = fields) #FIXME PATCH doesn't work with missing fields
   }
 
   body <- toJSON(data)
@@ -194,5 +261,78 @@ deleteFlexioReccord <- function(flexioURL, account, ressourceName, reccordID, au
   }
   if(! req$status_code %in% c(204)){print(http_status(req)$message); return(FALSE)}
   return(TRUE)
+}
 
+#' Convert a dataset's columns from string to numeric
+#' @param dataset the dataset you want to convert
+#' @param colnames the names of the columns you want to convert
+#' @family Data formatting
+#' @export
+castStringToNum <- function(dataset, colnames) {
+  for(c in colnames){
+    dataset[,c] <- as.numeric(gsub(',','.',dataset[,c]))
+  }
+  return(dataset)
+}
+
+#' Convert a dataset's columns from DATETIME string format to numeric
+#' @param dataset the dataset you want to convert
+#' @param colnames the names of the columns you want to convert
+#' @family Data formatting
+#' @export
+castDATETIMEToTime <- function(dataset, colnames) {
+  for(c in colnames){
+    dataset[,c] <- as.numeric(as.POSIXct(dataset[,c],format="%Y-%m-%dT%H:%M:%S"))
+  }
+  return(dataset)
+}
+
+#' Convert a dataset's columns from DATE string format to numeric
+#' @param dataset the dataset you want to convert
+#' @param colnames the names of the columns you want to convert
+#' @family Data formatting
+#' @export
+castDATEToTime <- function(dataset, colnames) {
+  for(c in colnames){
+    dataset[,c] <- as.numeric(as.POSIXct(dataset[,c],format="%Y-%m-%dT"))
+  }
+  return(dataset)
+}
+
+#' Convert a dataset's columns from TIME string format to numeric
+#' @param dataset the dataset you want to convert
+#' @param colnames the names of the columns you want to convert
+#' @family Data formatting
+#' @export
+castTIMEToTime <- function(dataset, colnames) {
+  for(c in colnames){
+    dataset[,c] <- as.numeric(as.POSIXct(dataset[,c],format="%H:%M:%S"))
+  }
+  return(dataset)
+}
+
+#' Genrerates a training and a validation dataset with a given separation
+#' @param dataset the dataset you want to split
+#' @param separation the repartition you want. Must be between 0 and 1
+#' @family Data preparation
+#' @export
+splitDataset <- function(dataset, separation) {
+  if(separation <= 0 || 1 <= separation){
+    sprintf("Error : %s is not in ]0,1[", separation);
+    return(FALSE)
+  }
+  ind <- sample(2, nrow(dataset), replace=TRUE, prob=c(separation, 1-separation))
+  dataset.training <- dataset[ind==1,]
+  dataset.validation <- dataset[ind==2,]
+
+  return(list(training=dataset.training, validation=dataset.validation))
+}
+
+#' Clean a dataset. Remove all rows containing missing values
+#' @param dataset the dataset you want to clean
+#' @family Data preparation
+#' @export
+cleanDataset <- function(dataset){
+  dataset <- na.omit(dataset)
+  return(dataset)
 }
