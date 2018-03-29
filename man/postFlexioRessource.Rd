@@ -2,7 +2,7 @@
 % Please edit documentation in R/flexio.r
 \name{postFlexioRessource}
 \alias{postFlexioRessource}
-\title{Sends a ressource to Flexio}
+\title{Sends a ressource to Flexio. Adds each entry of the given dataset to the Flexio ressource}
 \usage{
 postFlexioRessource(flexioURL, account, ressourceName, auth, data,
   verbose = FALSE)
@@ -19,14 +19,16 @@ postFlexioRessource(flexioURL, account, ressourceName, auth, data,
 \item{data}{the data you want to send to Flexio}
 
 \item{verbose}{set it to TRUE to print the request details}
-
-\item{fields}{name of the fields you want to get in your dataset (leave it empty if you want all the fields)}
 }
 \description{
-Sends a ressource to Flexio
+Sends a ressource to Flexio. Adds each entry of the given dataset to the Flexio ressource
 }
 \seealso{
 Other Flexio Interaction: \code{\link{deleteFlexioReccord}},
   \code{\link{getFlexioReccord}},
-  \code{\link{getFlexioRessource}}
+  \code{\link{getFlexioRessourceFieldsTypes}},
+  \code{\link{getFlexioRessourceSchema}},
+  \code{\link{getFlexioRessource}},
+  \code{\link{patchFlexioReccord}},
+  \code{\link{putFlexioReccord}}
 }

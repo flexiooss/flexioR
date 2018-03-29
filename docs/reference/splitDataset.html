@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Returns a dataset containing ressources reccords from Flexio — getFlexioRessource • flexioR</title>
+<title>Genrerates a training and a validation dataset with a given separation — splitDataset • flexioR</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Returns a dataset containing ressources reccords from Flexio — getFlexioRessource" />
+<meta property="og:title" content="Genrerates a training and a validation dataset with a given separation — splitDataset" />
 
-<meta property="og:description" content="Returns a dataset containing ressources reccords from Flexio" />
+<meta property="og:description" content="Genrerates a training and a validation dataset with a given separation" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -111,59 +111,32 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Returns a dataset containing ressources reccords from Flexio</h1>
+    <h1>Genrerates a training and a validation dataset with a given separation</h1>
     
     </div>
 
     
-    <p>Returns a dataset containing ressources reccords from Flexio</p>
+    <p>Genrerates a training and a validation dataset with a given separation</p>
     
 
-    <pre class="usage"><span class='fu'>getFlexioRessource</span>(<span class='no'>flexioURL</span>, <span class='no'>account</span>, <span class='no'>ressourceName</span>, <span class='no'>auth</span>, <span class='kw'>header</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>fields</span> <span class='kw'>=</span> <span class='fu'>c</span>(), <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>splitDataset</span>(<span class='no'>dataset</span>, <span class='no'>separation</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>flexioURL</th>
-      <td><p>URL of Flexio's API</p></td>
+      <th>dataset</th>
+      <td><p>the dataset you want to split</p></td>
     </tr>
     <tr>
-      <th>account</th>
-      <td><p>flexio account</p></td>
-    </tr>
-    <tr>
-      <th>ressourceName</th>
-      <td><p>name of the flexio ressource</p></td>
-    </tr>
-    <tr>
-      <th>auth</th>
-      <td><p>flexio authentification token</p></td>
-    </tr>
-    <tr>
-      <th>header</th>
-      <td><p>additional header (you don't need to add 'range' and 'Authorization', they have been put automaticaly for you)</p></td>
-    </tr>
-    <tr>
-      <th>fields</th>
-      <td><p>name of the fields you want to get in your dataset (leave it empty if you want all the fields)</p></td>
-    </tr>
-    <tr>
-      <th>verbose</th>
-      <td><p>set it to TRUE to print the request details</p></td>
+      <th>separation</th>
+      <td><p>the repartition you want. Must be between 0 and 1</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Other Flexio Interaction: <code><a href='deleteFlexioReccord.html'>deleteFlexioReccord</a></code>,
-  <code><a href='getFlexioReccord.html'>getFlexioReccord</a></code>,
-  <code><a href='getFlexioRessourceFieldsTypes.html'>getFlexioRessourceFieldsTypes</a></code>,
-  <code><a href='getFlexioRessourceSchema.html'>getFlexioRessourceSchema</a></code>,
-  <code><a href='patchFlexioReccord.html'>patchFlexioReccord</a></code>,
-  <code><a href='postFlexioRessource.html'>postFlexioRessource</a></code>,
-  <code><a href='putFlexioReccord.html'>putFlexioReccord</a></code></p>
+    <p>Other Data preparation: <code><a href='cleanDataset.html'>cleanDataset</a></code></p>
     
 
   </div>

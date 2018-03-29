@@ -2,9 +2,9 @@
 % Please edit documentation in R/flexio.r
 \name{getFlexioReccord}
 \alias{getFlexioReccord}
-\title{Returns a 1 entry dataset containing ressources reccord from Flexio}
+\title{Returns a 1 entry dataset containing a single ressource reccord from Flexio}
 \usage{
-getFlexioReccord(flexioURL, account, ressourceName, reccordID, auth,
+getFlexioReccord(flexioURL, account, ressourceName, auth, reccordID,
   fields = c(), verbose = FALSE)
 }
 \arguments{
@@ -14,19 +14,23 @@ getFlexioReccord(flexioURL, account, ressourceName, reccordID, auth,
 
 \item{ressourceName}{name of the flexio ressource}
 
-\item{reccordID}{: the ID of the reccord you want}
-
 \item{auth}{flexio authentification token}
+
+\item{reccordID}{: the ID of the reccord you want}
 
 \item{fields}{name of the fields you want to get in your dataset (leave it empty if you want all the fields)}
 
 \item{verbose}{set it to TRUE to print the request details}
 }
 \description{
-Returns a 1 entry dataset containing ressources reccord from Flexio
+Returns a 1 entry dataset containing a single ressource reccord from Flexio
 }
 \seealso{
 Other Flexio Interaction: \code{\link{deleteFlexioReccord}},
+  \code{\link{getFlexioRessourceFieldsTypes}},
+  \code{\link{getFlexioRessourceSchema}},
   \code{\link{getFlexioRessource}},
-  \code{\link{postFlexioRessource}}
+  \code{\link{patchFlexioReccord}},
+  \code{\link{postFlexioRessource}},
+  \code{\link{putFlexioReccord}}
 }

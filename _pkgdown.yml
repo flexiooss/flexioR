@@ -5,3 +5,26 @@ navbar:
       href: https://www.flexio.fr/
     - icon: fa-github fa-lg
       href: https://github.com/flexiooss/flexioR
+
+reference:
+  - title: Flexio Interaction
+    desc: Interaction with the Flexio API
+    contents:
+    - getFlexioRessource
+    - postFlexioRessource
+    - getFlexioReccord
+    - putFlexioReccord
+    - patchFlexioReccord
+    - deleteFlexioReccord
+    - getFlexioRessourceFieldsTypes
+    - getFlexioRessourceSchema
+  - title: Data formatting
+    contents:
+    - castStringToNum
+    - castDATETIMEToTime
+    - castDATEToTime
+    - castTIMEToTime
+  - title: Data preparation
+    contents:
+    - splitDataset
+    - cleanDataset

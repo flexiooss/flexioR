@@ -122,11 +122,41 @@
       <tbody>
         <tr>
           <th colspan="2">
-            <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-            <p class="section-desc"></p>
+            <h2 id="section-flexio-interaction" class="hasAnchor"><a href="#section-flexio-interaction" class="anchor"></a>Flexio Interaction</h2>
+            <p class="section-desc"><p>Interaction with the Flexio API</p></p>
           </th>
         </tr>
         <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="getFlexioRessource.html">getFlexioRessource()</a></code> </p>
+          </td>
+          <td><p>Returns a dataset containing ressources reccords from Flexio</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="postFlexioRessource.html">postFlexioRessource()</a></code> </p>
+          </td>
+          <td><p>Sends a ressource to Flexio. Adds each entry of the given dataset to the Flexio ressource</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="getFlexioReccord.html">getFlexioReccord()</a></code> </p>
+          </td>
+          <td><p>Returns a 1 entry dataset containing a single ressource reccord from Flexio</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="putFlexioReccord.html">putFlexioReccord()</a></code> </p>
+          </td>
+          <td><p>Updates a ressource reccord from Flexio (all the fields)</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="patchFlexioReccord.html">patchFlexioReccord()</a></code> </p>
+          </td>
+          <td><p>Updates a ressource reccord from Flexio (only the given fields)</p></td>
+        </tr><tr>
           <!--  -->
           <td>
             <p><code><a href="deleteFlexioReccord.html">deleteFlexioReccord()</a></code> </p>
@@ -135,33 +165,67 @@
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="flexioPaginationLength.html">flexioPaginationLength</a></code> </p>
+            <p><code><a href="getFlexioRessourceFieldsTypes.html">getFlexioRessourceFieldsTypes()</a></code> </p>
           </td>
-          <td><p>Max range authorized by Flexio API</p></td>
+          <td><p>Returns a list containing the Flexio ressource fields names and their types</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="getFlexioReccord.html">getFlexioReccord()</a></code> </p>
+            <p><code><a href="getFlexioRessourceSchema.html">getFlexioRessourceSchema()</a></code> </p>
           </td>
-          <td><p>Returns a 1 entry dataset containing ressources reccord from Flexio</p></td>
+          <td><p>Returns the raw schema of a flexio ressource</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-data-formatting" class="hasAnchor"><a href="#section-data-formatting" class="anchor"></a>Data formatting</h2>
+            <p class="section-desc"></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="castStringToNum.html">castStringToNum()</a></code> </p>
+          </td>
+          <td><p>Convert a dataset's columns from string to numeric</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="getFlexioRessource.html">getFlexioRessource()</a></code> </p>
+            <p><code><a href="castDATETIMEToTime.html">castDATETIMEToTime()</a></code> </p>
           </td>
-          <td><p>Returns a dataset containing ressources from Flexio</p></td>
+          <td><p>Convert a dataset's columns from DATETIME string format to numeric</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="helloworld.html">helloworld()</a></code> </p>
+            <p><code><a href="castDATEToTime.html">castDATEToTime()</a></code> </p>
           </td>
-          <td><p>Prints Hello World</p></td>
+          <td><p>Convert a dataset's columns from DATE string format to numeric</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="postFlexioRessource.html">postFlexioRessource()</a></code> </p>
+            <p><code><a href="castTIMEToTime.html">castTIMEToTime()</a></code> </p>
           </td>
-          <td><p>Sends a ressource to Flexio</p></td>
+          <td><p>Convert a dataset's columns from TIME string format to numeric</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-data-preparation" class="hasAnchor"><a href="#section-data-preparation" class="anchor"></a>Data preparation</h2>
+            <p class="section-desc"></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="splitDataset.html">splitDataset()</a></code> </p>
+          </td>
+          <td><p>Genrerates a training and a validation dataset with a given separation</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="cleanDataset.html">cleanDataset()</a></code> </p>
+          </td>
+          <td><p>Clean a dataset. Remove all rows containing missing values</p></td>
         </tr>
       </tbody>
       </table>
@@ -171,7 +235,9 @@
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#section-flexio-interaction">Flexio Interaction</a></li>
+      <li><a href="#section-data-formatting">Data formatting</a></li>
+      <li><a href="#section-data-preparation">Data preparation</a></li>
     </ul>
   </div>
 </div>
