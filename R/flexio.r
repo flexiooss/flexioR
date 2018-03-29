@@ -32,7 +32,7 @@ getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=N
     if(! req$status_code %in% c(200,206)){print(http_status(req)$message); return(NULL)}
 
     resp <- fromJSON(content(req, "text"))
-    new_dataset <- data.frame(resp, stringsAsFactors=FALSE)
+    new_dataset <- data.frame(resp, stringsAsFactors=FALSE, check.names=FALSE)
     dataset <- rbind(dataset, new_dataset)
 
 
@@ -40,11 +40,59 @@ getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=N
     if(req$status_code == 200){break}
   }
 
+
+  schema <- getFlexioRessourceSchema(
+    flexioURL=flexioURL,
+    account=account,
+    ressourceName=ressourceName,
+    auth=auth,
+    verbose=FALSE
+  )
+
+  schema <- getFlexioRessourceFieldsTypes(schema)
+
+  for(name in names(dataset)){
+    if(! is.null(schema[[name]]))
+    {
+      print(schema[[name]])
+      switch(schema[[name]],
+        DATETIME= {dataset <- castDATETIMEToTime(dataset, name)},
+        DURATION= {dataset <- castTIMEToTime(dataset, name)},
+        TIME=     {dataset <- castTIMEToTime(dataset, name)},
+        DATE=     {print("Congratulations, you are our 10000000000000th visitor"); dataset <- castDATEToTime(dataset, name)}
+      )
+    }
+  }
+
+  dataset<- subset(dataset, select=names(schema))
+
   if (length(fields) != 0){
     dataset <- subset(dataset, select=fields)
   }
-
   return(dataset)
+}
+
+getFlexioRessourceSchema <- function(flexioURL, account, ressourceName, auth, verbose=FALSE) {
+  requestURL <- paste(flexioURL,'/',account,'/',ressourceName,'/schema', sep = "", collapse = NULL)
+  if(verbose)
+  {
+    req <- GET(requestURL, add_headers(Authorization=auth), verbose())
+  }
+  else{
+    req <- GET(requestURL, add_headers(Authorization=auth))
+  }
+  if(! req$status_code %in% c(200)){print(http_status(req)$message); return(NULL)}
+
+  return(content(req))
+}
+
+getFlexioRessourceFieldsTypes <- function(schema) {
+  types <- list()
+
+  for (field in schema$properties) {
+    types[field$name] <- field$'data-type'
+  }
+  return(types)
 }
 
 #' Sends a ressource to Flexio. Adds each entry of the given dataset to the Flexio ressource
@@ -156,7 +204,7 @@ patchFlexioReccord <- function(flexioURL, account, ressourceName, auth, reccordI
   requestURL <- paste(flexioURL,'/',account,'/',ressourceName,'/',reccordID , sep = "", collapse = NULL)
 
   if(length(fields) > 0){
-    # data <- subset(data, select = fields) FIXME PATCH doesn't work with missing fields
+    data <- subset(data, select = fields) #FIXME PATCH doesn't work with missing fields
   }
 
   body <- toJSON(data)
@@ -194,5 +242,35 @@ deleteFlexioReccord <- function(flexioURL, account, ressourceName, reccordID, au
   }
   if(! req$status_code %in% c(204)){print(http_status(req)$message); return(FALSE)}
   return(TRUE)
+}
 
+castStringToNum <- function(dataset, colnames) {
+  for(c in colnames){
+    dataset[,c] <- as.numeric(gsub(',','.',dataset[,c]))
+  }
+  return(dataset)
+}
+
+castDATETIMEToTime <- function(dataset, colnames) {
+  for(c in colnames){
+    dataset[,c] <- as.numeric(as.POSIXct(dataset[,c],format="%Y-%m-%dT%H:%M:%S"))
+    print("cast DT")
+  }
+  return(dataset)
+}
+
+castDATEToTime <- function(dataset, colnames) {
+  for(c in colnames){
+    dataset[,c] <- as.numeric(as.POSIXct(dataset[,c],format="%Y-%m-%dT"))
+    print("cast D")
+  }
+  return(dataset)
+}
+
+castTIMEToTime <- function(dataset, colnames) {
+  for(c in colnames){
+    dataset[,c] <- as.numeric(as.POSIXct(dataset[,c],format="%H:%M:%S"))
+    print("cast T")
+  }
+  return(dataset)
 }
