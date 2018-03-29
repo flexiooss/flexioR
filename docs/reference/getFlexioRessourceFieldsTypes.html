@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Updates a ressource reccord from Flexio (only the given fields) — patchFlexioReccord • flexioR</title>
+<title>Returns a list containing the Flexio ressource fields names and their types — getFlexioRessourceFieldsTypes • flexioR</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Updates a ressource reccord from Flexio (only the given fields) — patchFlexioReccord" />
+<meta property="og:title" content="Returns a list containing the Flexio ressource fields names and their types — getFlexioRessourceFieldsTypes" />
 
-<meta property="og:description" content="Updates a ressource reccord from Flexio (only the given fields)" />
+<meta property="og:description" content="Returns a list containing the Flexio ressource fields names and their types" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -111,16 +111,15 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Updates a ressource reccord from Flexio (only the given fields)</h1>
+    <h1>Returns a list containing the Flexio ressource fields names and their types</h1>
     
     </div>
 
     
-    <p>Updates a ressource reccord from Flexio (only the given fields)</p>
+    <p>Returns a list containing the Flexio ressource fields names and their types</p>
     
 
-    <pre class="usage"><span class='fu'>patchFlexioReccord</span>(<span class='no'>flexioURL</span>, <span class='no'>account</span>, <span class='no'>ressourceName</span>, <span class='no'>auth</span>, <span class='no'>reccordID</span>, <span class='no'>data</span>,
-  <span class='kw'>fields</span> <span class='kw'>=</span> <span class='fu'>c</span>(), <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>getFlexioRessourceFieldsTypes</span>(<span class='no'>flexioURL</span>, <span class='no'>account</span>, <span class='no'>ressourceName</span>, <span class='no'>auth</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -141,31 +140,15 @@
       <th>auth</th>
       <td><p>flexio authentification token</p></td>
     </tr>
-    <tr>
-      <th>reccordID</th>
-      <td><p>: the ID of the reccord you want</p></td>
-    </tr>
-    <tr>
-      <th>data</th>
-      <td><p>: the data you want to use</p></td>
-    </tr>
-    <tr>
-      <th>fields</th>
-      <td><p>: the fields you want to update (leave it empty to update all the fields)</p></td>
-    </tr>
-    <tr>
-      <th>verbose</th>
-      <td><p>set it to TRUE to print the request details</p></td>
-    </tr>
     </table>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <p>Other Flexio Interaction: <code><a href='deleteFlexioReccord.html'>deleteFlexioReccord</a></code>,
   <code><a href='getFlexioReccord.html'>getFlexioReccord</a></code>,
-  <code><a href='getFlexioRessourceFieldsTypes.html'>getFlexioRessourceFieldsTypes</a></code>,
   <code><a href='getFlexioRessourceSchema.html'>getFlexioRessourceSchema</a></code>,
   <code><a href='getFlexioRessource.html'>getFlexioRessource</a></code>,
+  <code><a href='patchFlexioReccord.html'>patchFlexioReccord</a></code>,
   <code><a href='postFlexioRessource.html'>postFlexioRessource</a></code>,
   <code><a href='putFlexioReccord.html'>putFlexioReccord</a></code></p>
     
