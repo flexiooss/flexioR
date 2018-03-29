@@ -41,4 +41,3 @@ devtools::install_github("flexiooss/flexioR", ref="develop")
 ```R
 library(flexioR)
 ```
->
