@@ -20,7 +20,8 @@ getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=N
 
   repeat{
     range <- sprintf("%i-%i", rangeFrom, rangeFrom + flexioPaginationLength)
-
+    print(range)
+    
     if(verbose)
     {
       req <- GET(requestURL, add_headers(Authorization=auth, range=range, header), verbose())
