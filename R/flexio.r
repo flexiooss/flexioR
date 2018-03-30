@@ -18,8 +18,15 @@ getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=N
   rangeFrom <- 0
   dataset <- NULL #Empty dataset
 
+  dots <- c('.   ','..  ','... ')
+  doti <- 1
+
   repeat{
     range <- sprintf("%i-%i", rangeFrom, rangeFrom + flexioPaginationLength)
+    cat('\r')
+    cat(sprintf("Getting reccords [%i %i] from Flexio  %s", rangeFrom, rangeFrom + flexioPaginationLength, dots[doti]))
+    doti <- ifelse(doti == 3, 1, doti + 1)
+
 
     if(verbose)
     {
@@ -38,6 +45,7 @@ getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=N
     rangeFrom <- rangeFrom + flexioPaginationLength
     if(req$status_code == 200){break}
   }
+  cat('\r')
 
   # Delete all the columns which are not fields of the ressource
   schema <- getFlexioRessourceFieldsTypes(
