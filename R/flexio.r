@@ -344,3 +344,12 @@ cleanDataset <- function(dataset){
   dataset <- na.omit(dataset)
   return(dataset)
 }
+
+#' Saves a dataset in a .csv file
+#' @param the dataset you want to save
+#' @param the file you want to save the dataset in. Leave if empty to use the default file (tmp.csv)
+#' @family others
+#' @export
+saveDatasetToFile <- function(dataset, file="tmp.csv") {
+  write.csv(dataset, file=file, row.names=FALSE)
+}

@@ -28,3 +28,6 @@ reference:
     contents:
     - splitDataset
     - cleanDataset
+  - title: Others
+    contents:
+    - saveDatasetToFile
