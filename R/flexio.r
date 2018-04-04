@@ -36,7 +36,7 @@ getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=N
       req <- GET(requestURL, add_headers(Authorization=auth, range=range, header))
     }
 
-    if(! req$status_code %in% c(200,206)){print(http_status(req)$message); return(NULL)}
+    if(! req$status_code %in% c(200,206)){cat('\r'); print(http_status(req)$message); return(NULL)}
 
     resp <- fromJSON(content(req, "text"))
     new_dataset <- data.frame(resp, stringsAsFactors=FALSE, check.names=FALSE)
@@ -137,12 +137,9 @@ postFlexioRessource <- function(flexioURL, account, ressourceName, auth, data, v
   n <- nrow(data)
   for (entry in 1:n)
   {
-    if(length(data) == 1){
-      body <- sprintf('{\"%s\" : \"%s\"}', colnames(data),data[entry,]) #Manual JSON formatting
-    }
-    else{
-      body <- toJSON(data)
-    }
+    jason <- toJSON(data[entry,])
+    body <- substr(jason, 2, nchar(jason)-1)
+
     if(verbose){
       req <- POST(requestURL, body=body, add_headers(Authorization=auth, 'Content-type'='application/json'), verbose())
     }
