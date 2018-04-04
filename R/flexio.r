@@ -18,8 +18,15 @@ getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=N
   rangeFrom <- 0
   dataset <- NULL #Empty dataset
 
+  dots <- c('.   ','..  ','... ')
+  doti <- 1
+
   repeat{
     range <- sprintf("%i-%i", rangeFrom, rangeFrom + flexioPaginationLength)
+    cat('\r')
+    cat(sprintf("Getting reccords [%i %i] from Flexio  %s", rangeFrom, rangeFrom + flexioPaginationLength, dots[doti]))
+    doti <- ifelse(doti == 3, 1, doti + 1)
+
 
     if(verbose)
     {
@@ -29,7 +36,7 @@ getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=N
       req <- GET(requestURL, add_headers(Authorization=auth, range=range, header))
     }
 
-    if(! req$status_code %in% c(200,206)){print(http_status(req)$message); return(NULL)}
+    if(! req$status_code %in% c(200,206)){cat('\r'); print(http_status(req)$message); return(NULL)}
 
     resp <- fromJSON(content(req, "text"))
     new_dataset <- data.frame(resp, stringsAsFactors=FALSE, check.names=FALSE)
@@ -38,6 +45,7 @@ getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=N
     rangeFrom <- rangeFrom + flexioPaginationLength
     if(req$status_code == 200){break}
   }
+  cat('\r')
 
   # Delete all the columns which are not fields of the ressource
   schema <- getFlexioRessourceFieldsTypes(
@@ -129,12 +137,9 @@ postFlexioRessource <- function(flexioURL, account, ressourceName, auth, data, v
   n <- nrow(data)
   for (entry in 1:n)
   {
-    if(length(data) == 1){
-      body <- sprintf('{\"%s\" : \"%s\"}', colnames(data),data[entry,]) #Manual JSON formatting
-    }
-    else{
-      body <- toJSON(data)
-    }
+    jason <- toJSON(data[entry,])
+    body <- substr(jason, 2, nchar(jason)-1)
+
     if(verbose){
       req <- POST(requestURL, body=body, add_headers(Authorization=auth, 'Content-type'='application/json'), verbose())
     }
@@ -335,4 +340,13 @@ splitDataset <- function(dataset, separation) {
 cleanDataset <- function(dataset){
   dataset <- na.omit(dataset)
   return(dataset)
+}
+
+#' Saves a dataset in a .csv file
+#' @param the dataset you want to save
+#' @param the file you want to save the dataset in. Leave if empty to use the default file (tmp.csv)
+#' @family others
+#' @export
+saveDatasetToFile <- function(dataset, file="tmp.csv") {
+  write.csv(dataset, file=file, row.names=FALSE)
 }
