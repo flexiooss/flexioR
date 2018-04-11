@@ -17,5 +17,5 @@ Convert a dataset's columns from DATE string format to numeric
 \seealso{
 Other Data formatting: \code{\link{castDATETIMEToTime}},
   \code{\link{castStringToNum}},
-  \code{\link{castTIMEToTime}}
+  \code{\link{castTIMEToTime}}, \code{\link{setFieldNames}}
 }
