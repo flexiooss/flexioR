@@ -325,7 +325,7 @@ setFieldNames <- function(dataset, names){
   for (i in 1:length(names)) {
     if(names(names[i]) %in% names(dataset)){
       dataset[,names[[i]]] <- dataset[,names(names[i])]
-      dataset[,names(names[i])] <- NA
+      dataset[,names(names[i])] <- NULL
     }
   }
   return(dataset)
