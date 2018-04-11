@@ -316,6 +316,18 @@ castTIMEToTime <- function(dataset, colnames) {
   return(dataset)
 }
 
+setFieldNames <- function(dataset, names){
+  for (i in 1:length(names)) {
+    if(names(names[i]) %in% names(dataset)){
+      dataset[,names[[i]]] <- dataset[,names(names[i])]
+      dataset[,names(names[i])] <- NA
+    }
+  }
+  return(dataset)
+}
+
+
+
 #' Genrerates a training and a validation dataset with a given separation
 #' @param dataset the dataset you want to split
 #' @param separation the repartition you want. Must be between 0 and 1
