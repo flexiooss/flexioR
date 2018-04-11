@@ -2,7 +2,7 @@
 % Please edit documentation in R/flexio.r
 \name{castTIMEToTime}
 \alias{castTIMEToTime}
-\title{Convert a dataset's columns from TIME string format to numeric}
+\title{Converts a dataset's columns from TIME string format to numeric}
 \usage{
 castTIMEToTime(dataset, colnames)
 }
@@ -12,10 +12,11 @@ castTIMEToTime(dataset, colnames)
 \item{colnames}{the names of the columns you want to convert}
 }
 \description{
-Convert a dataset's columns from TIME string format to numeric
+Converts a dataset's columns from TIME string format to numeric
 }
 \seealso{
 Other Data formatting: \code{\link{castDATETIMEToTime}},
   \code{\link{castDATEToTime}},
-  \code{\link{castStringToNum}}
+  \code{\link{castStringToNum}},
+  \code{\link{setFieldNames}}
 }

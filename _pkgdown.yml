@@ -20,6 +20,7 @@ reference:
     - getFlexioRessourceSchema
   - title: Data formatting
     contents:
+    - setFieldNames
     - castStringToNum
     - castDATETIMEToTime
     - castDATEToTime

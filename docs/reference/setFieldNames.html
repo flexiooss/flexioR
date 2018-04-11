@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Convert a dataset's columns from DATETIME string format to numeric — castDATETIMEToTime • flexioR</title>
+<title>Replaces the fields names with the given ones — setFieldNames • flexioR</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Convert a dataset's columns from DATETIME string format to numeric — castDATETIMEToTime" />
+<meta property="og:title" content="Replaces the fields names with the given ones — setFieldNames" />
 
-<meta property="og:description" content="Convert a dataset's columns from DATETIME string format to numeric" />
+<meta property="og:description" content="Replaces the fields names with the given ones" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -111,34 +111,35 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Convert a dataset's columns from DATETIME string format to numeric</h1>
+    <h1>Replaces the fields names with the given ones</h1>
     
     </div>
 
     
-    <p>Convert a dataset's columns from DATETIME string format to numeric</p>
+    <p>Replaces the fields names with the given ones</p>
     
 
-    <pre class="usage"><span class='fu'>castDATETIMEToTime</span>(<span class='no'>dataset</span>, <span class='no'>colnames</span>)</pre>
+    <pre class="usage"><span class='fu'>setFieldNames</span>(<span class='no'>dataset</span>, <span class='no'>names</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>dataset</th>
-      <td><p>the dataset you want to convert</p></td>
+      <td><p>the dataset you want to update names</p></td>
     </tr>
     <tr>
-      <th>colnames</th>
-      <td><p>the names of the columns you want to convert</p></td>
+      <th>names</th>
+      <td><p>list of the old and new names formatted like that : list('old_name1'='new_name1', 'old_name2'='new_name2', ...)</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Other Data formatting: <code><a href='castDATEToTime.html'>castDATEToTime</a></code>,
+    <p>Other Data formatting: <code><a href='castDATETIMEToTime.html'>castDATETIMEToTime</a></code>,
+  <code><a href='castDATEToTime.html'>castDATEToTime</a></code>,
   <code><a href='castStringToNum.html'>castStringToNum</a></code>,
-  <code><a href='castTIMEToTime.html'>castTIMEToTime</a></code>, <code><a href='setFieldNames.html'>setFieldNames</a></code></p>
+  <code><a href='castTIMEToTime.html'>castTIMEToTime</a></code></p>
     
 
   </div>

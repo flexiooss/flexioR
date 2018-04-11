@@ -304,7 +304,7 @@ castDATEToTime <- function(dataset, colnames) {
   return(dataset)
 }
 
-#' Convert a dataset's columns from TIME string format to numeric
+#' Converts a dataset's columns from TIME string format to numeric
 #' @param dataset the dataset you want to convert
 #' @param colnames the names of the columns you want to convert
 #' @family Data formatting
@@ -312,6 +312,21 @@ castDATEToTime <- function(dataset, colnames) {
 castTIMEToTime <- function(dataset, colnames) {
   for(c in colnames){
     dataset[,c] <- as.numeric(as.POSIXct(dataset[,c],format="%H:%M:%S"))
+  }
+  return(dataset)
+}
+
+#' Replaces the fields names with the given ones
+#' @param dataset the dataset you want to update names
+#' @param names list of the old and new names formatted like that : list('old_name1'='new_name1', 'old_name2'='new_name2', ...)
+#' @family Data formatting
+#' @export
+setFieldNames <- function(dataset, names){
+  for (i in 1:length(names)) {
+    if(names(names[i]) %in% names(dataset)){
+      dataset[,names[[i]]] <- dataset[,names(names[i])]
+      dataset[,names(names[i])] <- NA
+    }
   }
   return(dataset)
 }
