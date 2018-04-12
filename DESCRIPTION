@@ -1,7 +1,7 @@
 Package: flexioR
 Type: Package
 Title: flexioR (Flexio API)
-Version: 0.2.1
+Version: 0.2.2
 Date: 2018-03-23
 Authors@R: c(person("Thibaud Jeannin", role = c("aut", "cre"), email = "stagiaire@flexio.fr"))
 Author: Thibaud Jeannin
