@@ -22,18 +22,18 @@ getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=N
   doti <- 1
 
   repeat{
+    if(!verbose){cat('\r')}
     range <- sprintf("%i-%i", rangeFrom, rangeFrom + flexioPaginationLength)
-    cat('\r')
     cat(sprintf("Getting reccords [%i %i] from Flexio  %s", rangeFrom, rangeFrom + flexioPaginationLength, dots[doti]))
     doti <- ifelse(doti == 3, 1, doti + 1)
-
-
+    
     if(verbose)
     {
       req <- GET(requestURL, add_headers(Authorization=auth, range=range, header), verbose())
     }
     else{
       req <- GET(requestURL, add_headers(Authorization=auth, range=range, header))
+      
     }
 
     if(! req$status_code %in% c(200,206)){cat('\r'); print(http_status(req)$message); return(NULL)}
@@ -45,7 +45,9 @@ getFlexioRessource <- function(flexioURL, account, ressourceName, auth, header=N
     rangeFrom <- rangeFrom + flexioPaginationLength
     if(req$status_code == 200){break}
   }
-  cat('\r')
+  if(!verbose){
+    cat('\r')
+  }
 
   # Delete all the columns which are not fields of the ressource
   schema <- getFlexioRessourceFieldsTypes(
@@ -135,11 +137,19 @@ postFlexioRessource <- function(flexioURL, account, ressourceName, auth, data, v
   requestURL <- paste(flexioURL,'/',account,'/',ressourceName, sep = "", collapse = NULL)
 
   n <- nrow(data)
+  
+  dots <- c('.   ','..  ','... ')
+  doti <- 1
+  
   for (entry in 1:n)
   {
+    if (!verbose){cat('\r')}
     jason <- toJSON(data[entry,])
     body <- substr(jason, 2, nchar(jason)-1)
 
+    cat(sprintf("Posting reccord #%i of %i to Flexio  %s", entry, n + flexioPaginationLength, dots[doti]))
+    doti <- ifelse(doti == 3, 1, doti + 1)
+    
     if(verbose){
       req <- POST(requestURL, body=body, add_headers(Authorization=auth, 'Content-type'='application/json'), verbose())
     }
@@ -149,6 +159,11 @@ postFlexioRessource <- function(flexioURL, account, ressourceName, auth, data, v
 
     if(! req$status_code %in% c(201)){print(http_status(req)$message); return(FALSE)}
   }
+  
+  if(!verbose){
+    cat('\r')
+  }
+  
   return(TRUE)
 }
 
@@ -304,7 +319,7 @@ castDATEToTime <- function(dataset, colnames) {
   return(dataset)
 }
 
-#' Convert a dataset's columns from TIME string format to numeric
+#' Converts a dataset's columns from TIME string format to numeric
 #' @param dataset the dataset you want to convert
 #' @param colnames the names of the columns you want to convert
 #' @family Data formatting
@@ -312,6 +327,21 @@ castDATEToTime <- function(dataset, colnames) {
 castTIMEToTime <- function(dataset, colnames) {
   for(c in colnames){
     dataset[,c] <- as.numeric(as.POSIXct(dataset[,c],format="%H:%M:%S"))
+  }
+  return(dataset)
+}
+
+#' Replaces the fields names with the given ones
+#' @param dataset the dataset you want to update names
+#' @param names list of the old and new names formatted like that : list('old_name1'='new_name1', 'old_name2'='new_name2', ...)
+#' @family Data formatting
+#' @export
+setFieldNames <- function(dataset, names){
+  for (i in 1:length(names)) {
+    if(names(names[i]) %in% names(dataset)){
+      dataset[,names[[i]]] <- dataset[,names(names[i])]
+      dataset[,names(names[i])] <- NULL
+    }
   }
   return(dataset)
 }

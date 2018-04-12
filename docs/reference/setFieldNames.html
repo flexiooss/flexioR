@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Deletes a ressource reccord from Flexio — deleteFlexioReccord • flexioR</title>
+<title>Replaces the fields names with the given ones — setFieldNames • flexioR</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Deletes a ressource reccord from Flexio — deleteFlexioReccord" />
+<meta property="og:title" content="Replaces the fields names with the given ones — setFieldNames" />
 
-<meta property="og:description" content="Deletes a ressource reccord from Flexio" />
+<meta property="og:description" content="Replaces the fields names with the given ones" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -111,55 +111,35 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Deletes a ressource reccord from Flexio</h1>
+    <h1>Replaces the fields names with the given ones</h1>
     
     </div>
 
     
-    <p>Deletes a ressource reccord from Flexio</p>
+    <p>Replaces the fields names with the given ones</p>
     
 
-    <pre class="usage"><span class='fu'>deleteFlexioReccord</span>(<span class='no'>flexioURL</span>, <span class='no'>account</span>, <span class='no'>ressourceName</span>, <span class='no'>reccordID</span>, <span class='no'>auth</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>setFieldNames</span>(<span class='no'>dataset</span>, <span class='no'>names</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>flexioURL</th>
-      <td><p>URL of Flexio's API</p></td>
+      <th>dataset</th>
+      <td><p>the dataset you want to update names</p></td>
     </tr>
     <tr>
-      <th>account</th>
-      <td><p>flexio account</p></td>
-    </tr>
-    <tr>
-      <th>ressourceName</th>
-      <td><p>name of the flexio ressource</p></td>
-    </tr>
-    <tr>
-      <th>reccordID</th>
-      <td><p>: the ID of the reccord you want</p></td>
-    </tr>
-    <tr>
-      <th>auth</th>
-      <td><p>flexio authentification token</p></td>
-    </tr>
-    <tr>
-      <th>verbose</th>
-      <td><p>set it to TRUE to print the request details</p></td>
+      <th>names</th>
+      <td><p>list of the old and new names formatted like that : list('old_name1'='new_name1', 'old_name2'='new_name2', ...)</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Other Flexio Interaction: <code><a href='getFlexioReccord.html'>getFlexioReccord</a></code>,
-  <code><a href='getFlexioRessourceFieldsTypes.html'>getFlexioRessourceFieldsTypes</a></code>,
-  <code><a href='getFlexioRessourceSchema.html'>getFlexioRessourceSchema</a></code>,
-  <code><a href='getFlexioRessource.html'>getFlexioRessource</a></code>,
-  <code><a href='patchFlexioReccord.html'>patchFlexioReccord</a></code>,
-  <code><a href='postFlexioRessource.html'>postFlexioRessource</a></code>,
-  <code><a href='putFlexioReccord.html'>putFlexioReccord</a></code></p>
+    <p>Other Data formatting: <code><a href='castDATETIMEToTime.html'>castDATETIMEToTime</a></code>,
+  <code><a href='castDATEToTime.html'>castDATEToTime</a></code>,
+  <code><a href='castStringToNum.html'>castStringToNum</a></code>,
+  <code><a href='castTIMEToTime.html'>castTIMEToTime</a></code></p>
     
 
   </div>
