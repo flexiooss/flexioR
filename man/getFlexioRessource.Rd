@@ -2,7 +2,7 @@
 % Please edit documentation in R/flexio.r
 \name{getFlexioRessource}
 \alias{getFlexioRessource}
-\title{Returns a dataset containing ressources reccords from Flexio}
+\title{Returns a dataset containing ressources records from Flexio}
 \usage{
 getFlexioRessource(flexioURL, account, ressourceName, auth, header = NULL,
   fields = c(), verbose = FALSE)
@@ -23,14 +23,14 @@ getFlexioRessource(flexioURL, account, ressourceName, auth, header = NULL,
 \item{verbose}{set it to TRUE to print the request details}
 }
 \description{
-Returns a dataset containing ressources reccords from Flexio
+Returns a dataset containing ressources records from Flexio
 }
 \seealso{
-Other Flexio Interaction: \code{\link{deleteFlexioReccord}},
-  \code{\link{getFlexioReccord}},
+Other Flexio Interaction: \code{\link{deleteFlexioRecord}},
+  \code{\link{getFlexioRecord}},
   \code{\link{getFlexioRessourceFieldsTypes}},
   \code{\link{getFlexioRessourceSchema}},
-  \code{\link{patchFlexioReccord}},
+  \code{\link{patchFlexioRecord}},
   \code{\link{postFlexioRessource}},
-  \code{\link{putFlexioReccord}}
+  \code{\link{putFlexioRecord}}
 }

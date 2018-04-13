@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Deletes a ressource reccord from Flexio — deleteFlexioReccord • flexioR</title>
+<title>Updates a ressource record from Flexio (all the fields) — putFlexioRecord • flexioR</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Deletes a ressource reccord from Flexio — deleteFlexioReccord" />
+<meta property="og:title" content="Updates a ressource record from Flexio (all the fields) — putFlexioRecord" />
 
-<meta property="og:description" content="Deletes a ressource reccord from Flexio" />
+<meta property="og:description" content="Updates a ressource record from Flexio (all the fields)" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -111,15 +111,15 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Deletes a ressource reccord from Flexio</h1>
+    <h1>Updates a ressource record from Flexio (all the fields)</h1>
     
     </div>
 
     
-    <p>Deletes a ressource reccord from Flexio</p>
+    <p>Updates a ressource record from Flexio (all the fields)</p>
     
 
-    <pre class="usage"><span class='fu'>deleteFlexioReccord</span>(<span class='no'>flexioURL</span>, <span class='no'>account</span>, <span class='no'>ressourceName</span>, <span class='no'>reccordID</span>, <span class='no'>auth</span>,
+    <pre class="usage"><span class='fu'>putFlexioRecord</span>(<span class='no'>flexioURL</span>, <span class='no'>account</span>, <span class='no'>ressourceName</span>, <span class='no'>auth</span>, <span class='no'>recordID</span>, <span class='no'>data</span>,
   <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -138,12 +138,16 @@
       <td><p>name of the flexio ressource</p></td>
     </tr>
     <tr>
-      <th>reccordID</th>
-      <td><p>: the ID of the reccord you want</p></td>
-    </tr>
-    <tr>
       <th>auth</th>
       <td><p>flexio authentification token</p></td>
+    </tr>
+    <tr>
+      <th>recordID</th>
+      <td><p>: the ID of the record you want</p></td>
+    </tr>
+    <tr>
+      <th>data</th>
+      <td><p>: the data you want to use</p></td>
     </tr>
     <tr>
       <th>verbose</th>
@@ -153,13 +157,13 @@
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Other Flexio Interaction: <code><a href='getFlexioReccord.html'>getFlexioReccord</a></code>,
+    <p>Other Flexio Interaction: <code><a href='deleteFlexioRecord.html'>deleteFlexioRecord</a></code>,
+  <code><a href='getFlexioRecord.html'>getFlexioRecord</a></code>,
   <code><a href='getFlexioRessourceFieldsTypes.html'>getFlexioRessourceFieldsTypes</a></code>,
   <code><a href='getFlexioRessourceSchema.html'>getFlexioRessourceSchema</a></code>,
   <code><a href='getFlexioRessource.html'>getFlexioRessource</a></code>,
-  <code><a href='patchFlexioReccord.html'>patchFlexioReccord</a></code>,
-  <code><a href='postFlexioRessource.html'>postFlexioRessource</a></code>,
-  <code><a href='putFlexioReccord.html'>putFlexioReccord</a></code></p>
+  <code><a href='patchFlexioRecord.html'>patchFlexioRecord</a></code>,
+  <code><a href='postFlexioRessource.html'>postFlexioRessource</a></code></p>
     
 
   </div>

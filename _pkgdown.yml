@@ -12,10 +12,10 @@ reference:
     contents:
     - getFlexioRessource
     - postFlexioRessource
-    - getFlexioReccord
-    - putFlexioReccord
-    - patchFlexioReccord
-    - deleteFlexioReccord
+    - getFlexioRecord
+    - putFlexioRecord
+    - patchFlexioRecord
+    - deleteFlexioRecord
     - getFlexioRessourceFieldsTypes
     - getFlexioRessourceSchema
   - title: Data formatting

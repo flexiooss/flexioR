@@ -24,11 +24,11 @@ postFlexioRessource(flexioURL, account, ressourceName, auth, data,
 Sends a ressource to Flexio. Adds each entry of the given dataset to the Flexio ressource
 }
 \seealso{
-Other Flexio Interaction: \code{\link{deleteFlexioReccord}},
-  \code{\link{getFlexioReccord}},
+Other Flexio Interaction: \code{\link{deleteFlexioRecord}},
+  \code{\link{getFlexioRecord}},
   \code{\link{getFlexioRessourceFieldsTypes}},
   \code{\link{getFlexioRessourceSchema}},
   \code{\link{getFlexioRessource}},
-  \code{\link{patchFlexioReccord}},
-  \code{\link{putFlexioReccord}}
+  \code{\link{patchFlexioRecord}},
+  \code{\link{putFlexioRecord}}
 }

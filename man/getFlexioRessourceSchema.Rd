@@ -22,11 +22,11 @@ getFlexioRessourceSchema(flexioURL, account, ressourceName, auth,
 Returns the raw schema of a flexio ressource
 }
 \seealso{
-Other Flexio Interaction: \code{\link{deleteFlexioReccord}},
-  \code{\link{getFlexioReccord}},
+Other Flexio Interaction: \code{\link{deleteFlexioRecord}},
+  \code{\link{getFlexioRecord}},
   \code{\link{getFlexioRessourceFieldsTypes}},
   \code{\link{getFlexioRessource}},
-  \code{\link{patchFlexioReccord}},
+  \code{\link{patchFlexioRecord}},
   \code{\link{postFlexioRessource}},
-  \code{\link{putFlexioReccord}}
+  \code{\link{putFlexioRecord}}
 }
