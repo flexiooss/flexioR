@@ -2,9 +2,9 @@
 % Please edit documentation in R/flexio.r
 \name{getFlexioRecord}
 \alias{getFlexioRecord}
-\title{Returns a 1 entry dataset containing a single ressource record from Flexio}
+\title{Returns a 1 entry dataset containing a single resource record from Flexio}
 \usage{
-getFlexioRecord(flexioURL, account, ressourceName, auth, recordID,
+getFlexioRecord(flexioURL, account, resourceName, auth, recordID,
   fields = c(), verbose = FALSE)
 }
 \arguments{
@@ -12,7 +12,7 @@ getFlexioRecord(flexioURL, account, ressourceName, auth, recordID,
 
 \item{account}{flexio account}
 
-\item{ressourceName}{name of the flexio ressource}
+\item{resourceName}{name of the flexio resource}
 
 \item{auth}{flexio authentification token}
 
@@ -23,14 +23,14 @@ getFlexioRecord(flexioURL, account, ressourceName, auth, recordID,
 \item{verbose}{set it to TRUE to print the request details}
 }
 \description{
-Returns a 1 entry dataset containing a single ressource record from Flexio
+Returns a 1 entry dataset containing a single resource record from Flexio
 }
 \seealso{
 Other Flexio Interaction: \code{\link{deleteFlexioRecord}},
-  \code{\link{getFlexioRessourceFieldsTypes}},
-  \code{\link{getFlexioRessourceSchema}},
-  \code{\link{getFlexioRessource}},
+  \code{\link{getFlexioResourceFieldsTypes}},
+  \code{\link{getFlexioResourceSchema}},
+  \code{\link{getFlexioResource}},
   \code{\link{patchFlexioRecord}},
-  \code{\link{postFlexioRessource}},
+  \code{\link{postFlexioResource}},
   \code{\link{putFlexioRecord}}
 }

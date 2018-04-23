@@ -2,9 +2,9 @@
 % Please edit documentation in R/flexio.r
 \name{patchFlexioRecord}
 \alias{patchFlexioRecord}
-\title{Updates a ressource record from Flexio (only the given fields)}
+\title{Updates a resource record from Flexio (only the given fields)}
 \usage{
-patchFlexioRecord(flexioURL, account, ressourceName, auth, recordID, data,
+patchFlexioRecord(flexioURL, account, resourceName, auth, recordID, data,
   fields = c(), verbose = FALSE)
 }
 \arguments{
@@ -12,7 +12,7 @@ patchFlexioRecord(flexioURL, account, ressourceName, auth, recordID, data,
 
 \item{account}{flexio account}
 
-\item{ressourceName}{name of the flexio ressource}
+\item{resourceName}{name of the flexio resource}
 
 \item{auth}{flexio authentification token}
 
@@ -25,14 +25,14 @@ patchFlexioRecord(flexioURL, account, ressourceName, auth, recordID, data,
 \item{verbose}{set it to TRUE to print the request details}
 }
 \description{
-Updates a ressource record from Flexio (only the given fields)
+Updates a resource record from Flexio (only the given fields)
 }
 \seealso{
 Other Flexio Interaction: \code{\link{deleteFlexioRecord}},
   \code{\link{getFlexioRecord}},
-  \code{\link{getFlexioRessourceFieldsTypes}},
-  \code{\link{getFlexioRessourceSchema}},
-  \code{\link{getFlexioRessource}},
-  \code{\link{postFlexioRessource}},
+  \code{\link{getFlexioResourceFieldsTypes}},
+  \code{\link{getFlexioResourceSchema}},
+  \code{\link{getFlexioResource}},
+  \code{\link{postFlexioResource}},
   \code{\link{putFlexioRecord}}
 }

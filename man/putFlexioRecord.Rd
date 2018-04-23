@@ -2,9 +2,9 @@
 % Please edit documentation in R/flexio.r
 \name{putFlexioRecord}
 \alias{putFlexioRecord}
-\title{Updates a ressource record from Flexio (all the fields)}
+\title{Updates a resource record from Flexio (all the fields)}
 \usage{
-putFlexioRecord(flexioURL, account, ressourceName, auth, recordID, data,
+putFlexioRecord(flexioURL, account, resourceName, auth, recordID, data,
   verbose = FALSE)
 }
 \arguments{
@@ -12,7 +12,7 @@ putFlexioRecord(flexioURL, account, ressourceName, auth, recordID, data,
 
 \item{account}{flexio account}
 
-\item{ressourceName}{name of the flexio ressource}
+\item{resourceName}{name of the flexio resource}
 
 \item{auth}{flexio authentification token}
 
@@ -23,14 +23,14 @@ putFlexioRecord(flexioURL, account, ressourceName, auth, recordID, data,
 \item{verbose}{set it to TRUE to print the request details}
 }
 \description{
-Updates a ressource record from Flexio (all the fields)
+Updates a resource record from Flexio (all the fields)
 }
 \seealso{
 Other Flexio Interaction: \code{\link{deleteFlexioRecord}},
   \code{\link{getFlexioRecord}},
-  \code{\link{getFlexioRessourceFieldsTypes}},
-  \code{\link{getFlexioRessourceSchema}},
-  \code{\link{getFlexioRessource}},
+  \code{\link{getFlexioResourceFieldsTypes}},
+  \code{\link{getFlexioResourceSchema}},
+  \code{\link{getFlexioResource}},
   \code{\link{patchFlexioRecord}},
-  \code{\link{postFlexioRessource}}
+  \code{\link{postFlexioResource}}
 }

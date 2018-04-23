@@ -2,7 +2,7 @@
 > R library to manipulate Flexio API
 
 ## Functionalities  
-* Get and delete Flexio ressources reccords from R
+* Interacts with Flexio's resource API
 
 ## Installation  
 > If you need unstable developement version, use ``ref="develop"`` instead of ``ref="master"``

@@ -6,7 +6,7 @@ Date: 2018-03-23
 Authors@R: c(person("Thibaud Jeannin", role = c("aut", "cre"), email = "stagiaire@flexio.fr"))
 Author: Thibaud Jeannin
 Maintainer: Thibaud Jeannin <stagiaire@flexio.fr>
-Description: Interacts with Flexio's API
+Description: Interacts with Flexio's resource API
 Depends: httr, jsonlite
 BugReports: https://github.com/flexiooss/flexioR/issues
 License: Apache 2.0

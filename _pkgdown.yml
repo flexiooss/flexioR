@@ -10,14 +10,14 @@ reference:
   - title: Flexio Interaction
     desc: Interaction with the Flexio API
     contents:
-    - getFlexioRessource
-    - postFlexioRessource
+    - getFlexioResource
+    - postFlexioResource
     - getFlexioRecord
     - putFlexioRecord
     - patchFlexioRecord
     - deleteFlexioRecord
-    - getFlexioRessourceFieldsTypes
-    - getFlexioRessourceSchema
+    - getFlexioResourceFieldsTypes
+    - getFlexioResourceSchema
   - title: Data formatting
     contents:
     - setFieldNames
