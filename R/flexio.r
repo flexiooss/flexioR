@@ -23,7 +23,7 @@ getFlexioResource <- function(flexioURL, account, resourceName, auth, header=NUL
 
   repeat{
     if(!verbose){cat('\r')}
-    range <- sprintf("%i-%i", rangeFrom, rangeFrom + flexioPaginationLength)
+    range <- sprintf("%i-%i", rangeFrom, rangeFrom + flexioPaginationLength-1)
     cat(sprintf("Getting records [%i %i] from Flexio  %s", rangeFrom, rangeFrom + flexioPaginationLength, dots[doti]))
     doti <- ifelse(doti == 3, 1, doti + 1)
 
