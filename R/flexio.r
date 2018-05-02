@@ -141,6 +141,8 @@ postFlexioResource <- function(flexioURL, account, resourceName, auth, data, ver
   dots <- c('.   ','..  ','... ')
   doti <- 1
 
+  records <- c()
+
   for (entry in 1:n)
   {
     if (!verbose){cat('\r')}
@@ -157,6 +159,8 @@ postFlexioResource <- function(flexioURL, account, resourceName, auth, data, ver
       req <- POST(requestURL, body=body, add_headers(Authorization=auth, 'Content-type'='application/json'))
     }
 
+    records <- c(records, req$header['X-Entity-Id'])
+
     if(! req$status_code %in% c(201)){print(http_status(req)$message); return(FALSE)}
   }
 
@@ -164,7 +168,7 @@ postFlexioResource <- function(flexioURL, account, resourceName, auth, data, ver
     cat('\r')
   }
 
-  return(TRUE)
+  return(unlist(records, use.names=FALSE))
 }
 
 #' Returns a 1 entry dataset containing a single resource record from Flexio
