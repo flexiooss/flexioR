@@ -2,6 +2,8 @@
 .Rhistory
 .Rapp.history
 
+# Idea files
+.idea/
 # Session Data files
 .RData
 # Example code in package build process
