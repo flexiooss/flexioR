@@ -124,7 +124,7 @@ getFlexioResourceFieldsTypes <- function(flexioURL, account, resourceName, auth)
   return(types)
 }
 
-#' Sends a resource to Flexio. Adds each entry of the given dataset to the Flexio resource
+#' Sends a resource to Flexio. Adds each entry of the given dataset to the Flexio resource, Returns the a vector with the recordIDs
 #' @param flexioURL URL of Flexio's API
 #' @param account flexio account
 #' @param resourceName name of the flexio resource
