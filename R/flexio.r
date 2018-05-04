@@ -124,7 +124,7 @@ getFlexioResourceFieldsTypes <- function(flexioURL, account, resourceName, auth)
   return(types)
 }
 
-#' Sends a resource to Flexio. Adds each entry of the given dataset to the Flexio resource
+#' Sends a resource to Flexio. Adds each entry of the given dataset to the Flexio resource, Returns the a vector with the recordIDs
 #' @param flexioURL URL of Flexio's API
 #' @param account flexio account
 #' @param resourceName name of the flexio resource
@@ -140,6 +140,8 @@ postFlexioResource <- function(flexioURL, account, resourceName, auth, data, ver
 
   dots <- c('.   ','..  ','... ')
   doti <- 1
+
+  records <- c()
 
   for (entry in 1:n)
   {
@@ -157,6 +159,8 @@ postFlexioResource <- function(flexioURL, account, resourceName, auth, data, ver
       req <- POST(requestURL, body=body, add_headers(Authorization=auth, 'Content-type'='application/json'))
     }
 
+    records <- c(records, req$header['X-Entity-Id'])
+
     if(! req$status_code %in% c(201)){print(http_status(req)$message); return(FALSE)}
   }
 
@@ -164,7 +168,7 @@ postFlexioResource <- function(flexioURL, account, resourceName, auth, data, ver
     cat('\r')
   }
 
-  return(TRUE)
+  return(unlist(records, use.names=FALSE))
 }
 
 #' Returns a 1 entry dataset containing a single resource record from Flexio

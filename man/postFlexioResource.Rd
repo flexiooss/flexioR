@@ -2,7 +2,7 @@
 % Please edit documentation in R/flexio.r
 \name{postFlexioResource}
 \alias{postFlexioResource}
-\title{Sends a resource to Flexio. Adds each entry of the given dataset to the Flexio resource}
+\title{Sends a resource to Flexio. Adds each entry of the given dataset to the Flexio resource, Returns the a vector with the recordIDs}
 \usage{
 postFlexioResource(flexioURL, account, resourceName, auth, data,
   verbose = FALSE)
@@ -21,7 +21,7 @@ postFlexioResource(flexioURL, account, resourceName, auth, data,
 \item{verbose}{set it to TRUE to print the request details}
 }
 \description{
-Sends a resource to Flexio. Adds each entry of the given dataset to the Flexio resource
+Sends a resource to Flexio. Adds each entry of the given dataset to the Flexio resource, Returns the a vector with the recordIDs
 }
 \seealso{
 Other Flexio Interaction: \code{\link{deleteFlexioRecord}},
