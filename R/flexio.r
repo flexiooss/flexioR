@@ -294,6 +294,22 @@ deleteFlexioRecord <- function(flexioURL, account, resourceName, recordID, auth,
   return(TRUE)
 }
 
+downloadFlexioFile <- function(targetFile, flexioResourceURL, flexioStorageURL, account, resourceName, auth, recordID, field){
+  record <- getFlexioRecord(
+    flexioURL = flexioResourceURL, 
+    account = account,
+    resourceName = resourceName,
+    auth = auth, 
+    recordID = recordID, 
+    fields = field
+  )
+  file_url <- sprintf("%s/%s",flexioStorageURL, as.character(record[1,1]))
+  download.file(file_url, destfile = targetFile, method = 'curl', extra=list('-k'))
+  
+  return(targetFile)
+  
+}
+
 #' Convert a dataset's columns from string to numeric
 #' @param dataset the dataset you want to convert
 #' @param colnames the names of the columns you want to convert
