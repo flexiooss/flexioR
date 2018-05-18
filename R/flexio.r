@@ -56,6 +56,7 @@ getFlexioResource <- function(flexioURL, account, resourceName, auth, header=NUL
     resourceName=resourceName,
     auth=auth
   )
+  
 
   # Convert each column to its right type
   for(name in names(dataset)){
@@ -68,8 +69,9 @@ getFlexioResource <- function(flexioURL, account, resourceName, auth, header=NUL
       )
     }
   }
-
-  dataset<- subset(dataset, select=names(schema))
+  
+  dataset$RecordID <- dataset[,'_id']
+  dataset<- subset(dataset, select=c('RecordID',names(schema)))
 
   if (length(fields) != 0){
     dataset <- subset(dataset, select=fields)
@@ -194,9 +196,14 @@ getFlexioRecord <- function(flexioURL, account, resourceName, auth, recordID, fi
   if(! req$status_code %in% c(200)){print(http_status(req)$message); return(NULL)}
 
   resp <- fromJSON(content(req, "text"))
-  resp=resp[-(which(sapply(resp,is.null),arr.ind=TRUE))] #Remove the NULL fields
-
+  for (e in 1:length(resp)) {
+    if(is.null(unlist(resp[e]))){
+      resp[e] <- 0
+    }
+  }
   record <- as.data.frame(resp, check.names=FALSE)
+  
+  record$RecordID <- recordID
   if (length(fields) != 0){
     record <- subset(record, select=fields)
   }
