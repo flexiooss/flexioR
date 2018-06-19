@@ -27,6 +27,7 @@ Updates a resource record from Flexio (all the fields)
 }
 \seealso{
 Other Flexio Interaction: \code{\link{deleteFlexioRecord}},
+  \code{\link{downloadFlexioFile}},
   \code{\link{getFlexioRecord}},
   \code{\link{getFlexioResourceFieldsTypes}},
   \code{\link{getFlexioResourceSchema}},

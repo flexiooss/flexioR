@@ -27,6 +27,7 @@ Returns a dataset containing resources records from Flexio
 }
 \seealso{
 Other Flexio Interaction: \code{\link{deleteFlexioRecord}},
+  \code{\link{downloadFlexioFile}},
   \code{\link{getFlexioRecord}},
   \code{\link{getFlexioResourceFieldsTypes}},
   \code{\link{getFlexioResourceSchema}},

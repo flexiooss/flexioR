@@ -20,6 +20,7 @@ Returns a list containing the Flexio resource fields names and their types
 }
 \seealso{
 Other Flexio Interaction: \code{\link{deleteFlexioRecord}},
+  \code{\link{downloadFlexioFile}},
   \code{\link{getFlexioRecord}},
   \code{\link{getFlexioResourceSchema}},
   \code{\link{getFlexioResource}},
