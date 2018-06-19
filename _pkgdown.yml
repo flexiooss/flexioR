@@ -32,3 +32,4 @@ reference:
   - title: Others
     contents:
     - saveDatasetToFile
+    - downloadFlexioFile

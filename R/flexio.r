@@ -294,6 +294,8 @@ deleteFlexioRecord <- function(flexioURL, account, resourceName, recordID, auth,
   return(TRUE)
 }
 
+#' @family Flexio Interaction
+#' @export
 downloadFlexioFile <- function(targetFile, flexioResourceURL, flexioStorageURL, account, resourceName, auth, recordID, field){
   record <- getFlexioRecord(
     flexioURL = flexioResourceURL, 
