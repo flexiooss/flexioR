@@ -397,7 +397,7 @@ saveDatasetToFile <- function(dataset, file="tmp.csv") {
 
 #' Writes a list as JSON to a file
 #' If run inside Flexio, the data written in the file will then be used to by the connector
-#' @param valueList a list of named values (eg : "list(a:42, b:c(1,2,3))")
+#' @param valueList a list of named values (eg : "list(a=42, b=c(1,2,3))")
 #' @export
 returnValues <- function(valueList) {
   jason <- toJSON(valueList, auto_unbox=TRUE)

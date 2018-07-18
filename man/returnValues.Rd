@@ -8,7 +8,7 @@ If run inside Flexio, the data written in the file will then be used to by the c
 returnValues(valueList)
 }
 \arguments{
-\item{valueList}{a list of named values (eg : "list(a:42, b:c(1,2,3))")}
+\item{valueList}{a list of named values (eg : "list(a=42, b=c(1,2,3))")}
 }
 \description{
 Writes a list as JSON to a file
