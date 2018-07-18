@@ -7,9 +7,9 @@
 saveDatasetToFile(dataset, file = "tmp.csv")
 }
 \arguments{
-\item{the}{dataset you want to save}
+\item{dataset}{the dataset you want to save}
 
-\item{the}{file you want to save the dataset in. Leave if empty to use the default file (tmp.csv)}
+\item{file}{the file you want to save the dataset in. Leave if empty to use the default file (tmp.csv)}
 }
 \description{
 Saves a dataset in a .csv file

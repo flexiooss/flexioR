@@ -25,6 +25,7 @@ Sends a resource to Flexio. Adds each entry of the given dataset to the Flexio r
 }
 \seealso{
 Other Flexio Interaction: \code{\link{deleteFlexioRecord}},
+  \code{\link{downloadFlexioFile}},
   \code{\link{getFlexioRecord}},
   \code{\link{getFlexioResourceFieldsTypes}},
   \code{\link{getFlexioResourceSchema}},

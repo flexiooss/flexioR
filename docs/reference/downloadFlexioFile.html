@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Genrerates a training and a validation dataset with a given separation — splitDataset • flexioR</title>
+<title>Download the file which is in the given Flexio record and stores it in the target file — downloadFlexioFile • flexioR</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Genrerates a training and a validation dataset with a given separation — splitDataset" />
+<meta property="og:title" content="Download the file which is in the given Flexio record and stores it in the target file — downloadFlexioFile" />
 
-<meta property="og:description" content="Genrerates a training and a validation dataset with a given separation" />
+<meta property="og:description" content="Download the file which is in the given Flexio record and stores it in the target file" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -111,32 +111,64 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Genrerates a training and a validation dataset with a given separation</h1>
+    <h1>Download the file which is in the given Flexio record and stores it in the target file</h1>
     
     </div>
 
     
-    <p>Genrerates a training and a validation dataset with a given separation</p>
+    <p>Download the file which is in the given Flexio record and stores it in the target file</p>
     
 
-    <pre class="usage"><span class='fu'>splitDataset</span>(<span class='no'>dataset</span>, <span class='no'>separation</span>)</pre>
+    <pre class="usage"><span class='fu'>downloadFlexioFile</span>(<span class='no'>targetFile</span>, <span class='no'>flexioResourceURL</span>, <span class='no'>flexioStorageURL</span>, <span class='no'>account</span>,
+  <span class='no'>resourceName</span>, <span class='no'>auth</span>, <span class='no'>recordID</span>, <span class='no'>field</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>dataset</th>
-      <td><p>the dataset you want to split</p></td>
+      <th>targetFile</th>
+      <td><p>local file in which you want to store the downloaded file</p></td>
     </tr>
     <tr>
-      <th>separation</th>
-      <td><p>the repartition you want. Must be between 0 and 1</p></td>
+      <th>flexioResourceURL</th>
+      <td><p>URL of Flexio Resources API</p></td>
+    </tr>
+    <tr>
+      <th>flexioStorageURL</th>
+      <td><p>URL of Flexio Object Storage API</p></td>
+    </tr>
+    <tr>
+      <th>account</th>
+      <td><p>flexio account</p></td>
+    </tr>
+    <tr>
+      <th>resourceName</th>
+      <td><p>name of the flexio resource in which the file is stored</p></td>
+    </tr>
+    <tr>
+      <th>auth</th>
+      <td><p>Flexio authentification token</p></td>
+    </tr>
+    <tr>
+      <th>recordID</th>
+      <td><p>the ID of the record in which the file is stored</p></td>
+    </tr>
+    <tr>
+      <th>field</th>
+      <td><p>field in which the file is stored</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Other Data preparation: <code><a href='cleanDataset.html'>cleanDataset</a></code></p>
+    <p>Other Flexio Interaction: <code><a href='deleteFlexioRecord.html'>deleteFlexioRecord</a></code>,
+  <code><a href='getFlexioRecord.html'>getFlexioRecord</a></code>,
+  <code><a href='getFlexioResourceFieldsTypes.html'>getFlexioResourceFieldsTypes</a></code>,
+  <code><a href='getFlexioResourceSchema.html'>getFlexioResourceSchema</a></code>,
+  <code><a href='getFlexioResource.html'>getFlexioResource</a></code>,
+  <code><a href='patchFlexioRecord.html'>patchFlexioRecord</a></code>,
+  <code><a href='postFlexioResource.html'>postFlexioResource</a></code>,
+  <code><a href='putFlexioRecord.html'>putFlexioRecord</a></code></p>
     
 
   </div>

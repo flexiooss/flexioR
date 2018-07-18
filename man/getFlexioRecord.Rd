@@ -27,6 +27,7 @@ Returns a 1 entry dataset containing a single resource record from Flexio
 }
 \seealso{
 Other Flexio Interaction: \code{\link{deleteFlexioRecord}},
+  \code{\link{downloadFlexioFile}},
   \code{\link{getFlexioResourceFieldsTypes}},
   \code{\link{getFlexioResourceSchema}},
   \code{\link{getFlexioResource}},

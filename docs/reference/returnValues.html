@@ -6,7 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Clean a dataset. Remove all rows containing missing values — cleanDataset • flexioR</title>
+<title>Writes a list as JSON to a file
+If run inside Flexio, the data written in the file will then be used to by the connector — returnValues • flexioR</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +26,11 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Clean a dataset. Remove all rows containing missing values — cleanDataset" />
+<meta property="og:title" content="Writes a list as JSON to a file
+If run inside Flexio, the data written in the file will then be used to by the connector — returnValues" />
 
-<meta property="og:description" content="Clean a dataset. Remove all rows containing missing values" />
+<meta property="og:description" content="Writes a list as JSON to a file
+If run inside Flexio, the data written in the file will then be used to by the connector" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -111,28 +114,26 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Clean a dataset. Remove all rows containing missing values</h1>
+    <h1>Writes a list as JSON to a file
+If run inside Flexio, the data written in the file will then be used to by the connector</h1>
     
     </div>
 
     
-    <p>Clean a dataset. Remove all rows containing missing values</p>
+    <p>Writes a list as JSON to a file
+If run inside Flexio, the data written in the file will then be used to by the connector</p>
     
 
-    <pre class="usage"><span class='fu'>cleanDataset</span>(<span class='no'>dataset</span>)</pre>
+    <pre class="usage"><span class='fu'>returnValues</span>(<span class='no'>valueList</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>dataset</th>
-      <td><p>the dataset you want to clean</p></td>
+      <th>valueList</th>
+      <td><p>a list of named values (eg : "list(a:42, b:c(1,2,3))")</p></td>
     </tr>
     </table>
-    
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <p>Other Data preparation: <code><a href='splitDataset.html'>splitDataset</a></code></p>
     
 
   </div>
@@ -140,9 +141,7 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#see-also">See also</a></li>
-          </ul>
+                </ul>
 
   </div>
 </div>

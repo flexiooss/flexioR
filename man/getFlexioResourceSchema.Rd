@@ -23,6 +23,7 @@ Returns the raw schema of a flexio resource
 }
 \seealso{
 Other Flexio Interaction: \code{\link{deleteFlexioRecord}},
+  \code{\link{downloadFlexioFile}},
   \code{\link{getFlexioRecord}},
   \code{\link{getFlexioResourceFieldsTypes}},
   \code{\link{getFlexioResource}},

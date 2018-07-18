@@ -276,7 +276,7 @@ patchFlexioRecord <- function(flexioURL, account, resourceName, auth, recordID, 
 #' @param flexioURL URL of Flexio's API
 #' @param account flexio account
 #' @param resourceName name of the flexio resource
-#' @param auth flexio authentification token
+#' @param auth Flexio authentification token
 #' @param recordID : the ID of the record you want
 #' @param verbose set it to TRUE to print the request details
 #' @family Flexio Interaction
@@ -294,6 +294,15 @@ deleteFlexioRecord <- function(flexioURL, account, resourceName, recordID, auth,
   return(TRUE)
 }
 
+#' Download the file which is in the given Flexio record and stores it in the target file
+#' @param targetFile local file in which you want to store the downloaded file
+#' @param flexioResourceURL URL of Flexio Resources API
+#' @param flexioStorageURL URL of Flexio Object Storage API
+#' @param account flexio account
+#' @param resourceName name of the flexio resource in which the file is stored
+#' @param auth Flexio authentification token
+#' @param recordID the ID of the record in which the file is stored
+#' @param field field in which the file is stored
 #' @family Flexio Interaction
 #' @export
 downloadFlexioFile <- function(targetFile, flexioResourceURL, flexioStorageURL, account, resourceName, auth, recordID, field){
@@ -375,37 +384,22 @@ setFieldNames <- function(dataset, names){
   return(dataset)
 }
 
-#' Genrerates a training and a validation dataset with a given separation
-#' @param dataset the dataset you want to split
-#' @param separation the repartition you want. Must be between 0 and 1
-#' @family Data preparation
-#' @export
-splitDataset <- function(dataset, separation) {
-  if(separation <= 0 || 1 <= separation){
-    sprintf("Error : %s is not in ]0,1[", separation);
-    return(FALSE)
-  }
-  ind <- sample(2, nrow(dataset), replace=TRUE, prob=c(separation, 1-separation))
-  dataset.training <- dataset[ind==1,]
-  dataset.validation <- dataset[ind==2,]
-
-  return(list(training=dataset.training, validation=dataset.validation))
-}
-
-#' Clean a dataset. Remove all rows containing missing values
-#' @param dataset the dataset you want to clean
-#' @family Data preparation
-#' @export
-cleanDataset <- function(dataset){
-  dataset <- na.omit(dataset)
-  return(dataset)
-}
 
 #' Saves a dataset in a .csv file
-#' @param the dataset you want to save
-#' @param the file you want to save the dataset in. Leave if empty to use the default file (tmp.csv)
+#' @param dataset the dataset you want to save
+#' @param file the file you want to save the dataset in. Leave if empty to use the default file (tmp.csv)
 #' @family others
 #' @export
 saveDatasetToFile <- function(dataset, file="tmp.csv") {
   write.csv(dataset, file=file, row.names=FALSE)
+}
+
+
+#' Writes a list as JSON to a file
+#' If run inside Flexio, the data written in the file will then be used to by the connector
+#' @param valueList a list of named values (eg : "list(a:42, b:c(1,2,3))")
+#' @export
+returnValues <- function(valueList) {
+  jason <- toJSON(valueList, auto_unbox=TRUE)
+  write(jason, file = 'jason.json')
 }

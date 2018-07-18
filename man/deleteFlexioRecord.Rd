@@ -16,7 +16,7 @@ deleteFlexioRecord(flexioURL, account, resourceName, recordID, auth,
 
 \item{recordID}{: the ID of the record you want}
 
-\item{auth}{flexio authentification token}
+\item{auth}{Flexio authentification token}
 
 \item{verbose}{set it to TRUE to print the request details}
 }
@@ -24,7 +24,8 @@ deleteFlexioRecord(flexioURL, account, resourceName, recordID, auth,
 Deletes a resource record from Flexio
 }
 \seealso{
-Other Flexio Interaction: \code{\link{getFlexioRecord}},
+Other Flexio Interaction: \code{\link{downloadFlexioFile}},
+  \code{\link{getFlexioRecord}},
   \code{\link{getFlexioResourceFieldsTypes}},
   \code{\link{getFlexioResourceSchema}},
   \code{\link{getFlexioResource}},
